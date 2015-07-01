@@ -9,12 +9,15 @@
 		<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css"/>
 		<script src="./js/less.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="./js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.slimscroll.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.fullPage.min.js" type="text/javascript" charset="utf-8"></script>
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
 			    $('#fullpage').fullpage({
-			    	navigation:true
+			    	navigation:true,
+			    	verticalCentered:false,
+			    	scrollOverflow:true
 			    });
 			});
 		</script>
@@ -23,10 +26,33 @@
 	<body class="pcindex">
 	<div class="container">
 		<div id="fullpage">
-		    <div class="section">Some section</div>
-		    <div class="section">Some section</div>
-		    <div class="section">Some section</div>
-		    <div class="section">Some section</div>
+		    <div class="section">
+		    	<div class="phones">
+		    		<div class="phone1">手机1</div>
+		    		<div class="phone2">手机2</div>
+		    	</div>
+		    	<div class="down">下载</div>
+		    	<div class="star">星星</div>
+		    </div>
+		    <div class="section">
+		    	<div class="help">帮帮我吧</div>
+		    	<div class="yewen">夜问</div>
+		    	<div class="answer">回答</div>
+		    </div>
+		    <div class="section">
+		    	<div class="goodnight">晚安</div>
+		    	<div class="yehua">夜话</div>
+		    	<div class="smile">笑脸</div>
+		    </div>
+		    <div class="section">
+		    	<div class="connection">联系</div>
+		    	<div class="fujin">附近</div>
+		    	<div class="loc">loc图标</div>
+		    	<div class="222" style="height: 2000px;background-color: red;">
+		    	关于我们
+		    	</div>
+		    </div>
+		    
 		</div>
 	</div>
 	</body>
