@@ -17,7 +17,8 @@
 			    $('#fullpage').fullpage({
 			    	navigation:true,
 			    	verticalCentered:false,
-			    	scrollOverflow:true
+			    	scrollOverflow:true,
+			    	anchors:['firstPage', 'secondPage', 'thirdPage','fourthPage']
 			    });
 			});
 		</script>
@@ -26,29 +27,31 @@
 	<body class="pcindex">
 	<div class="container">
 		<div id="fullpage">
-		    <div class="section">
-		    	<div class="phones">
-		    		<div class="phone1">手机1</div>
-		    		<div class="phone2">手机2</div>
+		    <div class="first section">
+		    	<div class="phonesblock">
+		    		<div class="phones">
+			    		<div class="phone1">手机1</div>
+			    		<div class="phone2">手机2</div>
+		    		</div>
 		    	</div>
-		    	<div class="down">下载</div>
+		    	<div class="downblock">下载</div>
 		    	<div class="star">星星</div>
 		    </div>
-		    <div class="section">
+		    <div class="second section">
 		    	<div class="help">帮帮我吧</div>
 		    	<div class="yewen">夜问</div>
 		    	<div class="answer">回答</div>
 		    </div>
-		    <div class="section">
+		    <div class="third section">
 		    	<div class="goodnight">晚安</div>
 		    	<div class="yehua">夜话</div>
 		    	<div class="smile">笑脸</div>
 		    </div>
-		    <div class="section">
+		    <div class="fourth section">
 		    	<div class="connection">联系</div>
 		    	<div class="fujin">附近</div>
 		    	<div class="loc">loc图标</div>
-		    	<div class="222" style="height: 2000px;background-color: red;">
+		    	<div class="about">
 		    	关于我们
 		    	</div>
 		    </div>
