@@ -14,30 +14,79 @@
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
+				
+				var p1 = new Image();
+				p1.src = "img/phone1.png";
+				var p2 = new Image();
+				p2.src = "img/phone2.png";
+				
+				if($("html").width()>1800){
+					$(".container").addClass("w1800");
+				};
+				
 			    $('#fullpage').fullpage({
 			    	navigation:true,
 			    	verticalCentered:false,
 			    	scrollOverflow:true,
-			    	anchors:['firstPage', 'secondPage', 'thirdPage','fourthPage']
+			    	anchors:['firstPage', 'secondPage', 'thirdPage','fourthPage'],
+			    	afterLoad:function(){
+			       					       		
+			       		$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
+			       		$(".phone2").css("top",$(".phones").height()-$(".phone2").height()/2.0+"px");
+			       		
+			       		$(".phone1").animate({
+			       			opacity: 0.9,
+						    top: "-="+(923.0/2-135.0)*$(".phone1").height()/p1.height+"px"
+			       		},2000,function(){
+			       		});
+			       		
+			       		$(".phone2").animate({
+			       			opacity: 0.9,
+						    top: "-="+(923.0/2-135.0)*$(".phone2").height()/p2.height+"px"
+			       		},2000,function(){
+			       		});
+			       		
+			       	},
+			    	afterRender: function(){
+			    		
+			            var pluginContainer = $(this);
+			            //alert("The resulting DOM structure is ready");
+			           
+								            
+			       	},
+			       	onLeave:function(index, nextIndex, direction){
+			       		$(".phone1").stop();
+			       		$(".phone2").stop();
+			       		if(index != 1){
+			       			$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
+			       			$(".phone2").css("top",$(".phones").height()-$(".phone2").height()/2.0+"px");
+			       		}
+			       	}
+			       	
 			    });
 			});
 		</script>
 		
 	</head>
 	<body class="pcindex">
-	<div class="container">
+	
 		<div id="fullpage">
 		    <div class="first section">
+		    <div class="container">
 		    	<div class="phonesblock">
 		    		<div class="phones">
-			    		<div class="phone1"><img src="img/phone1.png" alt="" /></div>
-			    		<div class="phone2"><img src="img/phone2.png" alt="" /></div>
+			    		<img src="img/phone1.png" alt="" class="phone1" />
+			    		<img src="img/phone2.png" alt="" class="phone2" />
 		    		</div>
 		    	</div>
-		    	<div class="downblock"><img src="img/down.png" alt="" /></div>
+		    	<div class="downblock">
+		    		<img src="img/down.png" alt="" class="down" />
+		    	</div>
 		    	<div class="star">星星</div>
 		    </div>
+		    </div>
 		    <div class="second section">
+		    <div class="container">
 		    	<div class="hablock">
 			    	<div class="help">帮帮我吧</div>
 			    	<div class="answer">回答</div>
@@ -45,12 +94,16 @@
 		    	<div class="yewen">夜问</div>
 		    	<div class="ball">球球</div>
 		    </div>
+		    </div>
 		    <div class="third section">
+		    <div class="container">
 		    	<div class="goodnight">晚安</div>
 		    	<div class="yehua">夜话</div>
 		    	<div class="smile">笑脸</div>
 		    </div>
+		    </div>
 		    <div class="fourth section">
+		    <div class="container">
 		    	<div class="connection">联系</div>
 		    	<div class="fujin">附近</div>
 		    	<div class="loc">loc图标</div>
@@ -58,8 +111,8 @@
 		    	关于我们
 		    	</div>
 		    </div>
+		    </div>
 		    
 		</div>
-	</div>
 	</body>
 </html>
