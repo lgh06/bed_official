@@ -38,7 +38,10 @@
 			       			opacity: 0.9,
 						    top: "-="+(923.0/2-135.0)*$(".phone1").height()/p1.height+"px"
 			       		},2000,function(){
-			        		});
+			        		$(".star").animate({
+			       				opacity:1
+			       			},2000);	
+			       		});
 			       		
 			       		
 			       		$(".phone2").animate({
@@ -46,6 +49,8 @@
 						    top: "-="+(801.0/2-120.0)*$(".phone2").height()/p2.height+"px"
 			       		},2000,function(){
 			       		});
+			       		
+			       		
 			       		
 			       	},
 			    	afterRender: function(){
@@ -83,7 +88,10 @@
 		    	<div class="downblock">
 		    		<img src="img/down.png" alt="" class="down" />
 		    	</div>
-		    	<div class="star">星星</div>
+		    	<div class="star">
+		    		<div class="vline"></div>
+		    		<img src="img/star2.png" alt="" />
+		    	</div>
 		    </div>
 		    </div>
 		    <div class="second section">

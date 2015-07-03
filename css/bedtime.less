@@ -8,7 +8,51 @@
     height: 100%;
 }
 
+@-webkit-keyframes myrotate{
+    0%{
+        -webkit-transform : rotate(0deg);
+    }    
+    100%{
+        -webkit-transform : rotate(360deg);
+    }
+}
+@-moz-keyframes myrotate{
+    0%{
+        -moz-transform : rotate(0deg);
+    }
+    100%{
+        -moz-transform : rotate(360deg);
+    }
+}
+@-ms-keyframes myrotate{
+    0%{
+        -ms-transform : rotate(0deg);
+    }
+    100%{
+        -ms-transform : rotate(360deg);
+    }
+}
+@keyframes myrotate{
+    0%{
+        transform : rotate(0deg);
+    }
+    100%{
+        transform : rotate(360deg);
+    }
+}
+
 .pcindex{
+    
+    .vline{
+        height: 60%;
+        width:2px;
+        *width: 4px;
+        background-color: #efde01;
+        margin: 0 auto;
+        border: 1px solid #e5d20b;
+        border-style: none solid none solid;
+    }
+    
     .first{
         background-color: #6a3589;
         .phonesblock{
@@ -56,12 +100,30 @@
             }
         }
         .star{
+            opacity: 0;
             width: 200px;
             height: 300px;
-            background-color: red;
+            background-color: transparent;
+            background-color: inherit;
             margin: 0 auto;
             position: relative;
             z-index: 0;
+            text-align: center;
+            img{
+                position: relative;
+                bottom: 40px;
+                height: 40%;
+                max-width: 100%;
+                margin: 0 auto;
+                
+                -webkit-animation: myrotate 5s infinite linear;
+                animation: myrotate 5s infinite linear;
+                
+                &:hover{
+                    -webkit-animation-play-state: paused;
+                    animation-play-state: paused;    
+                }
+            }
         }
     }
     .second{
