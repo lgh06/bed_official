@@ -32,6 +32,11 @@
 			    	scrollOverflow:true,
 			    	anchors:['firstPage', 'secondPage', 'thirdPage','fourthPage'],
 			    	afterLoad:function(){
+			    		//星星定位
+			    		$(".star img").css("bottom",$(".star").height()*0.2+"px");
+			    		$(window).resize(function () {
+			    			$(".star img").css("bottom",$(".star").height()*0.2+"px");
+			    		});
 			       					       		
 			       		$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
 			       		$(".phone2").css("top",$(".phones").height()-$(".phone2").height()/2.0+"px");
