@@ -1,3 +1,5 @@
+@charset "utf-8";
+@font-yy:"Youyuan","幼圆","SYHT","微软雅黑","Microsoft Yahei","Heiti";
 .container{
     width: 100%;
     height: 100%;
@@ -130,22 +132,76 @@
         background-color: #eeeeee;
         .hablock{
             width: 65%;
-            background-color: #343434;
+            background-color: transparent;
+            background-color: inherit;
             height: 80%;
             float: left;
             position: absolute;
             bottom: 0;
+            .starmoon{
+                height: 20%;
+                margin: 0 auto;
+                position: relative;
+                img{
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                }
+            }
             .help{
-                height: 60%;
+                height: 40%;
+                width: 100%;
+                img{
+                    height: 100%;
+                    display: block;
+                    margin: 0 auto;
+                }
             }
             .answer{
                 height: 40%;
+                width: 100%;
+                .pillowswrap{
+                    height: 70%;
+                    width: 100%;
+                }
+                .pillows{
+                    overflow: hidden;
+                    width: 100%;
+                    position: relative;
+                    img{
+                        //display: inline-block;
+                        
+                        position: absolute;
+                    }
+                    .z1,.z2{
+                        
+                    }
+                    .z3{
+                        
+                    }
+                    .z4{
+                        
+                    }
+                    .z5{
+                        
+                    }
+                    .z6{
+                        
+                    }
+                }
+                
             }
         }
         .yewen{
             width:35%;
             height: 100%;
             float: right;
+            .title{
+                font-family:@font-yy;
+            }
+            .content{
+                font-family:@font-yy;
+            }
         }
         .ball{
             width: 200px;

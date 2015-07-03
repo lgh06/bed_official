@@ -15,6 +15,7 @@
 		<script src="js/jquery.fullPage.min.js" type="text/javascript" charset="utf-8"></script>
 		
 		<script type="text/javascript">
+			var pillowsInitialed = 0;
 			$(document).ready(function() {
 				
 				var p1 = new Image();
@@ -35,7 +36,10 @@
 			    		//星星定位
 			    		$(".star img").css("bottom",$(".star").height()*0.2+"px");
 			    		$(window).resize(function () {
+			    			//星星
 			    			$(".star img").css("bottom",$(".star").height()*0.2+"px");
+			    			//枕头
+			    			initPillows();
 			    		});
 			       					       		
 			       		$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
@@ -57,6 +61,9 @@
 			       		},2000,function(){
 			       		});
 			       		
+			       		$(".hablock .starmoon").width($(".hablock .help img").width());
+			       		
+			       		initPillows();
 			       		
 			       		
 			       	},
@@ -77,6 +84,37 @@
 			       	}
 			       	
 			    });
+			    
+			    function initPillows(){
+			    	
+			    	//原设计图长宽比 1146/301
+			    	
+			    	$(".pillows img").height($(".pillowswrap").height());
+			    	//超出部分隐藏。指定高度。
+			    	$(".pillows").height(126.0/213*$(".z1").height());
+			    	
+			    	$(".pillowswrap").width($(".pillowswrap").height()/301*1146.0+"px");
+			    	pillowsInitialed = 1;
+			    	console.log($(".pillowswrap").width());
+			    	console.log($(".pillowswrap").height());
+			    	//61 706
+			    	$(".pillows .z2").css({
+			    		left:61.0/706*$(".pillowswrap").width()+"px"
+			    	});
+			    	$(".pillows .z3").css({
+			    		left:158.0/706*$(".pillowswrap").width()+"px"
+			    	});
+			    	$(".pillows .z4").css({
+			    		left:235.0/706*$(".pillowswrap").width()+"px"
+			    	});
+			    	$(".pillows .z5").css({
+			    		left:475.0/706*$(".pillowswrap").width()+"px"
+			    	});
+			    	$(".pillows .z6").css({
+			    		left:552.0/706*$(".pillowswrap").width()+"px"
+			    	});
+			    }
+			    
 			});
 		</script>
 		
@@ -104,16 +142,48 @@
 		    <div class="second section">
 		    <div class="container">
 		    	<div class="hablock">
-			    	<div class="help">帮帮我吧</div>
-			    	<div class="answer">回答</div>
+		    		<div class="starmoon">
+		    			<img src="img/star-moon.png" alt="" />
+		    		</div>
+			    	<div class="help">
+			    		<img src="img/help.png" alt="" />
+			    	</div>
+			    	<div class="answer">
+			    		<div class="pillowswrap">
+			    		<div class="pillows">
+				    		<img class="z1" src="img/z/z1.png" alt="" />
+				    		<img class="z2" src="img/z/z2.png" alt="" />
+				    		<img class="z3" src="img/z/z3.png" alt="" />
+				    		<img class="z4" src="img/z/z4.png" alt="" />
+				    		<img class="z5" src="img/z/z5.png" alt="" />
+				    		<img class="z6" src="img/z/z6.png" alt="" />
+			    		</div>
+			    		</div>
+			    		<span>我告诉你哦</span>
+			    		<span>是这样的</span>
+			    		<span>知道了么</span>
+			    	</div>
 		    	</div>
-		    	<div class="yewen">夜问</div>
+		    	<div class="yewen">
+		    		<div class="title">夜问？</div>
+		    		<div class="content">
+		    			<p>
+		    				你的一个问题，<br />
+							成就了这么多的大湿！<br />
+							无论是情感困惑	<br />
+							还是十万个为什么，<br />
+							这里都有人回应你！<br />
+		    			</p>
+		    		</div>
+		    	</div>
 		    	<div class="ball">球球</div>
 		    </div>
 		    </div>
 		    <div class="third section">
 		    <div class="container">
-		    	<div class="goodnight">晚安</div>
+		    	<div class="goodnight">晚安
+		    		<img src="img/yehua.png"/>
+		    	</div>
 		    	<div class="yehua">夜话</div>
 		    	<div class="smile">笑脸</div>
 		    </div>
