@@ -274,11 +274,26 @@
             height: 100%;
             float: right;
         }
-        .yehua{
-            background-color: darken(#f4e6ff,20%);
+        .yehuablock{
+            background-color: #f4e6ff;
             width:45%;
             height: 100%;
             float: left;
+            display: table;
+            .yehua{
+                display: table-cell;
+                vertical-align: middle;
+                .title{
+                    .pcindex .second .yewenblock .yewen .title();
+                    text-align: right;
+                }
+                .content{
+                    .pcindex .second .yewenblock .yewen .content();
+                    text-align: right;
+                    
+                }
+            }
+            
         }
         .smile{
             width: 200px;

@@ -50,6 +50,7 @@ $(document).ready(function() {
        		},2000,function(){
        		});
        		
+       		//对starmoon设置宽度，以便使用margin 0 auto来居中
        		$(".hablock .starmoon").width($(".hablock .help img").width());
        		
        		initPillows();
