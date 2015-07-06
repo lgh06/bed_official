@@ -12,7 +12,7 @@ $(document).ready(function() {
     	verticalCentered:false,
     	scrollOverflow:true,
     	anchors:['firstPage', 'secondPage', 'thirdPage','fourthPage'],
-    	afterLoad:function(){
+    	afterLoad:function(anchorLink, index){
     		
     		
     		
@@ -23,6 +23,7 @@ $(document).ready(function() {
     			$(".star img").css("bottom",$(".star").height()*0.2+"px");
     			//枕头
     			initPillows();
+    			initPops();
     		});
     		
     		var p1 = new Image();
@@ -52,7 +53,6 @@ $(document).ready(function() {
        		$(".hablock .starmoon").width($(".hablock .help img").width());
        		
        		initPillows();
-       		initPops();
        		
        	},
     	afterRender: function(){
@@ -71,23 +71,41 @@ $(document).ready(function() {
        			$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
        			$(".phone2").css("top",$(".phones").height()-$(".phone2").height()/2.0+"px");
        		}
+       		
+       		if(nextIndex == 2){
+       			initPops();
+       		}
        	}
        	
     });
     
+    //使枕头的图片适应div
     function initPillows(){
     	imageFitDiv($(".pillows"),1022.0,137);
     }
     
+    //初始化pop提示框的位置
     function initPops(){
     	imageFitDiv($(".pop1"),230.0,149);
-    	var span = $(".pop1").find("span");
-    	span.css({
-    		left:(span.parent().find("img").width()-span.width())/2.0+"px",
-    		top:(span.parent().find("img").height()-span.height())/2.0+"px"
-    	});
+    	imageFitDiv($(".pop2"),230.0,149);
+    	imageFitDiv($(".pop3"),230.0,149);
+    	
+    	//pop1在原图的位置：left 70
+    	//原图 pillows 773 103
+    	popPosition($(".pop1"),70.0/773*$(".pillows img").width(),0);
+    	popPosition($(".pop2"),298.0/773*$(".pillows img").width(),13.0/91*$(".pop1 img").height());//top距离相对于pop1 img算出
+    	popPosition($(".pop3"),574.0/773*$(".pillows img").width(),-10.0/91*$(".pop1 img").height());
+    	
+    	
+    	popSpanPosition($(".pop1"));
+    	popSpanPosition($(".pop2"));
+    	popSpanPosition($(".pop3"));
+    	
+    	
+    	
     }
     
+    //使图片适应div，宽高等比例，不超过div
     function imageFitDiv(div,imgOriginWidth,imgOriginHeight){
     	var w = $(div).width();
     	var h = $(div).height();
@@ -99,6 +117,24 @@ $(document).ready(function() {
     		$(div).find("img").height(w/imgOriginWidth*imgOriginHeight+"px");
     		
     	}      	
+    }
+    
+    //定位三个pop框
+    function popPosition(pop1,left,top){
+    	var pillowOffset = $(".pillows img").offset().left - $(".pillows").offset().left ;
+    	$(pop1).css({
+    		left:pillowOffset+left+"px",
+    		top:top+"px"
+    	});
+    }
+    
+    //定位pop内的span文字
+    function popSpanPosition(pop1){
+    	var span = $(pop1).find("span");
+    	span.css({
+    		left:(span.parent().find("img").width()-span.width())/2.0+"px",
+    		top:(span.parent().find("img").height()-span.height())/2.0+"px"
+    	});
     }
     
 });
