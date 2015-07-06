@@ -14,109 +14,7 @@
 		<script src="js/jquery.slimscroll.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.fullPage.min.js" type="text/javascript" charset="utf-8"></script>
 		
-		<script type="text/javascript">
-			var pillowsInitialed = 0;
-			$(document).ready(function() {
-				
-				var p1 = new Image();
-				p1.src = "img/phone1.png";
-				var p2 = new Image();
-				p2.src = "img/phone2.png";
-				
-				if($("html").width()>1800){
-					$(".container").addClass("w1800");
-				};
-				
-			    $('#fullpage').fullpage({
-			    	navigation:true,
-			    	verticalCentered:false,
-			    	scrollOverflow:true,
-			    	anchors:['firstPage', 'secondPage', 'thirdPage','fourthPage'],
-			    	afterLoad:function(){
-			    		//星星定位
-			    		$(".star img").css("bottom",$(".star").height()*0.2+"px");
-			    		$(window).resize(function () {
-			    			//星星
-			    			$(".star img").css("bottom",$(".star").height()*0.2+"px");
-			    			//枕头
-			    			initPillows();
-			    		});
-			       					       		
-			       		$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
-			       		$(".phone2").css("top",$(".phones").height()-$(".phone2").height()/2.0+"px");
-			       		
-			       		$(".phone1").animate({
-			       			opacity: 0.9,
-						    top: "-="+(923.0/2-135.0)*$(".phone1").height()/p1.height+"px"
-			       		},2000,function(){
-			        		$(".star").animate({
-			       				opacity:1
-			       			},2000);	
-			       		});
-			       		
-			       		
-			       		$(".phone2").animate({
-			       			opacity: 1,
-						    top: "-="+(801.0/2-120.0)*$(".phone2").height()/p2.height+"px"
-			       		},2000,function(){
-			       		});
-			       		
-			       		$(".hablock .starmoon").width($(".hablock .help img").width());
-			       		
-			       		initPillows();
-			       		
-			       		
-			       	},
-			    	afterRender: function(){
-			    		
-			            var pluginContainer = $(this);
-			            //alert("The resulting DOM structure is ready");
-			           
-								            
-			       	},
-			       	onLeave:function(index, nextIndex, direction){
-			       		$(".phone1").stop();
-			       		$(".phone2").stop();
-			       		if(index != 1){
-			       			$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
-			       			$(".phone2").css("top",$(".phones").height()-$(".phone2").height()/2.0+"px");
-			       		}
-			       	}
-			       	
-			    });
-			    
-			    function initPillows(){
-			    	
-			    	//原设计图长宽比 1146/301
-			    	
-			    	$(".pillows img").height($(".pillowswrap").height());
-			    	//超出部分隐藏。指定高度。
-			    	$(".pillows").height(126.0/213*$(".z1").height());
-			    	
-			    	$(".pillowswrap").width($(".pillowswrap").height()/301*1146.0+"px");
-			    	pillowsInitialed = 1;
-			    	console.log($(".pillowswrap").width());
-			    	console.log($(".pillowswrap").height());
-			    	//61 706
-			    	$(".pillows .z2").css({
-			    		left:61.0/706*$(".pillowswrap").width()+"px"
-			    	});
-			    	$(".pillows .z3").css({
-			    		left:158.0/706*$(".pillowswrap").width()+"px"
-			    	});
-			    	$(".pillows .z4").css({
-			    		left:235.0/706*$(".pillowswrap").width()+"px"
-			    	});
-			    	$(".pillows .z5").css({
-			    		left:475.0/706*$(".pillowswrap").width()+"px"
-			    	});
-			    	$(".pillows .z6").css({
-			    		left:552.0/706*$(".pillowswrap").width()+"px"
-			    	});
-			    }
-			    
-			});
-		</script>
+		<script type="text/javascript" src="js/index.js"></script>
 		
 	</head>
 	<body class="pcindex">
@@ -149,19 +47,15 @@
 			    		<img src="img/help.png" alt="" />
 			    	</div>
 			    	<div class="answer">
-			    		<div class="pillowswrap">
+			    		<div class="answers">
+				    		<span>我告诉你哦</span>
+				    		<span>是这样的</span>
+				    		<span>知道了么</span>
+			    		</div>
 			    		<div class="pillows">
-				    		<img class="z1" src="img/z/z1.png" alt="" />
-				    		<img class="z2" src="img/z/z2.png" alt="" />
-				    		<img class="z3" src="img/z/z3.png" alt="" />
-				    		<img class="z4" src="img/z/z4.png" alt="" />
-				    		<img class="z5" src="img/z/z5.png" alt="" />
-				    		<img class="z6" src="img/z/z6.png" alt="" />
+				    		<img src="img/pillows.png"/>
 			    		</div>
-			    		</div>
-			    		<span>我告诉你哦</span>
-			    		<span>是这样的</span>
-			    		<span>知道了么</span>
+			    		
 			    	</div>
 		    	</div>
 		    	<div class="yewen">

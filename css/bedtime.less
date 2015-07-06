@@ -130,6 +130,9 @@
     }
     .second{
         background-color: #eeeeee;
+        .container{
+            position: relative;//有绝对定位，防止寻找父元素出现差错
+        }
         .hablock{
             width: 65%;
             background-color: transparent;
@@ -160,35 +163,22 @@
             .answer{
                 height: 40%;
                 width: 100%;
-                .pillowswrap{
+                position: relative;
+                .pillows{
+                    position: absolute;
+                    bottom: 0;
                     height: 70%;
                     width: 100%;
-                }
-                .pillows{
-                    overflow: hidden;
-                    width: 100%;
-                    position: relative;
+                    //text-align: center;
                     img{
-                        //display: inline-block;
-                        
-                        position: absolute;
-                    }
-                    .z1,.z2{
-                        
-                    }
-                    .z3{
-                        
-                    }
-                    .z4{
-                        
-                    }
-                    .z5{
-                        
-                    }
-                    .z6{
-                        
+                        height: 70%;
+                        //position: absolute;
+                        //bottom: 0;
+                        display: block;
+                        margin: 0 auto;
                     }
                 }
+
                 
             }
         }
