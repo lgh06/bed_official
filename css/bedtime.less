@@ -204,16 +204,27 @@
                 
             }
         }
-        .yewen{
+        .yewenblock{
             width:35%;
             height: 100%;
             float: right;
-            .title{
-                font-family:@font-yy;
+            display: table;
+            
+            .yewen{
+                display: table-cell;
+                vertical-align: middle;
+                .title{
+                    font-family:@font-yy;
+                    color: #6b318b;
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+                .content{
+                    font-family:@font-yy;
+                    font-size: 24px;
+                }    
             }
-            .content{
-                font-family:@font-yy;
-            }
+            
         }
         .ball{
             width: 200px;
