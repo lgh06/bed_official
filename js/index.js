@@ -1,10 +1,7 @@
 var pillowsInitialed = 0;
 $(document).ready(function() {
 	
-	var p1 = new Image();
-	p1.src = "img/phone1.png";
-	var p2 = new Image();
-	p2.src = "img/phone2.png";
+	
 	
 	if($("html").width()>1800){
 		$(".container").addClass("w1800");
@@ -16,6 +13,9 @@ $(document).ready(function() {
     	scrollOverflow:true,
     	anchors:['firstPage', 'secondPage', 'thirdPage','fourthPage'],
     	afterLoad:function(){
+    		
+    		
+    		
     		//星星定位
     		$(".star img").css("bottom",$(".star").height()*0.2+"px");
     		$(window).resize(function () {
@@ -24,6 +24,11 @@ $(document).ready(function() {
     			//枕头
     			initPillows();
     		});
+    		
+    		var p1 = new Image();
+			p1.src = "img/phone1.png";
+			var p2 = new Image();
+			p2.src = "img/phone2.png";
        					       		
        		$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
        		$(".phone2").css("top",$(".phones").height()-$(".phone2").height()/2.0+"px");
@@ -47,14 +52,16 @@ $(document).ready(function() {
        		$(".hablock .starmoon").width($(".hablock .help img").width());
        		
        		initPillows();
-       		
+       		initPops();
        		
        	},
     	afterRender: function(){
     		
             var pluginContainer = $(this);
             //alert("The resulting DOM structure is ready");
-           
+            
+            //防止第一页加载未渲染好时 出现第二页内容
+            $(".second .starmoon").css("display","block");
 					            
        	},
        	onLeave:function(index, nextIndex, direction){
@@ -69,18 +76,29 @@ $(document).ready(function() {
     });
     
     function initPillows(){
-    	
-    	var w = $(".pillows").width();
-    	var h = $(".pillows").height();
-    	if(w/h >= 1022.0/137){
-    		$(".pillows img").height(h+"px");
-    		$(".pillows img").width(h/137.0*1022+"px");
+    	imageFitDiv($(".pillows"),1022.0,137);
+    }
+    
+    function initPops(){
+    	imageFitDiv($(".pop1"),230.0,149);
+    	var span = $(".pop1").find("span");
+    	span.css({
+    		left:(span.parent().find("img").width()-span.width())/2.0+"px",
+    		top:(span.parent().find("img").height()-span.height())/2.0+"px"
+    	});
+    }
+    
+    function imageFitDiv(div,imgOriginWidth,imgOriginHeight){
+    	var w = $(div).width();
+    	var h = $(div).height();
+    	if(w/h >= imgOriginWidth/imgOriginHeight){
+    		$(div).find("img").height(h+"px");
+    		$(div).find("img").width(h/imgOriginHeight*imgOriginWidth+"px");
     	}else{
-    		$(".pillows img").width(w+"px");
-    		$(".pillows img").height(w/1022.0*137+"px");
+    		$(div).find("img").width(w+"px");
+    		$(div).find("img").height(w/imgOriginWidth*imgOriginHeight+"px");
     		
-    	}
-    	
+    	}      	
     }
     
 });

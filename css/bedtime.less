@@ -57,6 +57,8 @@
     
     .first{
         background-color: #6a3589;
+        height: 100%;
+        width: 100%;
         .phonesblock{
             width:50%;
             height: 80%;
@@ -131,7 +133,7 @@
     .second{
         background-color: #eeeeee;
         .container{
-            position: relative;//有绝对定位，防止寻找父元素出现差错
+            //position: relative;//有绝对定位，防止寻找父元素出现差错
         }
         .hablock{
             width: 65%;
@@ -142,6 +144,7 @@
             position: absolute;
             bottom: 0;
             .starmoon{
+                display: none;//防止第一页加载未渲染好时 出现第二页内容
                 height: 20%;
                 margin: 0 auto;
                 position: relative;
@@ -164,10 +167,28 @@
                 height: 40%;
                 width: 100%;
                 position: relative;
+                .answers{
+                    height: 45%;
+                    width: 100%;
+                    .pop1{
+                        height: 100%;
+                        width:30%;
+                        position: relative;
+                        img{
+                            position: relative;
+                        }
+                        span{
+                            position: absolute;
+                        }
+                    }
+                    .pop1,.pop2,.pop3{
+                        
+                    }
+                }
                 .pillows{
                     position: absolute;
                     bottom: 0;
-                    height: 70%;
+                    height: 55%;
                     width: 100%;
                     //text-align: center;
                     img{
