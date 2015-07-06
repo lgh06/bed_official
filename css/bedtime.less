@@ -45,20 +45,21 @@
 
 .pcindex{
     
-    .vline{
-        height: 60%;
-        width:2px;
-        *width: 4px;
-        background-color: #efde01;
-        margin: 0 auto;
-        border: 1px solid #e5d20b;
-        border-style: none solid none solid;
-    }
+
     
     .first{
         background-color: #6a3589;
         height: 100%;
         width: 100%;
+        .vline{
+            height: 60%;
+            width:2px;
+            *width: 4px;
+            background-color: #efde01;
+            margin: 0 auto;
+            border: 1px solid #e5d20b;
+            border-style: none solid none solid;
+        }
         .phonesblock{
             width:50%;
             height: 80%;
@@ -132,6 +133,15 @@
     }
     .second{
         background-color: #eeeeee;
+        
+         .vline{
+            height: 60%;
+            width:2px;
+            *width: 4px;
+            background-color: #722d98;
+            margin: 0 auto;
+        }
+        
         .container{
             //position: relative;//有绝对定位，防止寻找父元素出现差错
         }
@@ -227,13 +237,32 @@
             
         }
         .ball{
-            width: 200px;
-            height: 300px;
-            background-color: blue;
             position: absolute;
             right: 10%;
             top: 0;
             z-index: 0;
+            //opacity: 0;
+            width: 12%;
+            height: 30%;
+            background-color: transparent;
+            background-color: inherit;
+            margin: 0 auto;
+            text-align: center;
+            img{
+                position: relative;
+                bottom: 1px;
+                height: 40%;
+                max-width: 100%;
+                margin: 0 auto;
+                
+                -webkit-animation: myrotate 5s infinite linear;
+                animation: myrotate 5s infinite linear;
+                
+                &:hover{
+                    -webkit-animation-play-state: paused;
+                    animation-play-state: paused;    
+                }
+            }
         }
         
     }
