@@ -11,7 +11,7 @@ $(document).ready(function() {
     	navigation:true,
     	verticalCentered:false,
     	scrollOverflow:true,
-    	anchors:['firstPage', 'secondPage', 'thirdPage','fourthPage'],
+    	anchors:['firstPage', 'secondPage', 'thirdPage','fourthPage','fifthPage'],
     	afterLoad:function(anchorLink, index){
     		
     		
@@ -25,6 +25,7 @@ $(document).ready(function() {
     			initPillows();
     			initPops();
     			initHearts();
+    			initConn();
     		});
     		
     		var p1 = new Image();
@@ -96,6 +97,9 @@ $(document).ready(function() {
        		if(nextIndex == 3){
        			initHearts();
        		}
+       		if(nextIndex == 4){
+       			initConn();
+       		}
        	}
        	
     });
@@ -141,6 +145,11 @@ $(document).ready(function() {
     		top:(102/originH*h)+"px"
     	});
     	
+    }
+    
+    //使联系的图片适应div
+    function initConn(){
+    	imageFitDiv($(".connection"),312.0,463);
     }
     
     //使图片适应div，宽高等比例，不超过div
