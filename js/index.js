@@ -24,6 +24,7 @@ $(document).ready(function() {
     			//枕头
     			initPillows();
     			initPops();
+    			initHearts();
     		});
     		
     		var p1 = new Image();
@@ -63,6 +64,8 @@ $(document).ready(function() {
             
             //防止第一页加载未渲染好时 出现第二页内容
             $(".second .starmoon").css("display","block");
+            
+            /*imageFitDiv($(".hearttalk"),900.0,748);*/
 					            
        	},
        	onLeave:function(index, nextIndex, direction){
@@ -75,6 +78,9 @@ $(document).ready(function() {
        		
        		if(nextIndex == 2){
        			initPops();
+       		}
+       		if(nextIndex == 3){
+       			initHearts();
        		}
        	}
        	
@@ -103,6 +109,23 @@ $(document).ready(function() {
     	popSpanPosition($(".pop3"));
     	
     	
+    	
+    }
+    
+    function initHearts(){
+    	var w = $(".third .talk").width();
+    	var h = $(".third .talk").height();
+    	var originW = 900.0;
+    	var originH = 748.0;
+    	
+    	//475 102
+    	
+    	$(".third .gn").css({
+    		width:180.0/611*w+"px",
+    		height:149.0/508*h+"px",
+    		left:(475/originW*w)+"px",
+    		top:(102/originH*h)+"px"
+    	});
     	
     }
     
@@ -137,5 +160,7 @@ $(document).ready(function() {
     		top:(span.parent().find("img").height()-span.height())/2.0+"px"
     	});
     }
+    
+
     
 });
