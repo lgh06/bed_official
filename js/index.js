@@ -65,6 +65,20 @@ $(document).ready(function() {
             //防止第一页加载未渲染好时 出现第二页内容
             $(".second .starmoon").css("display","block");
             
+            //预读图片
+            var s = new Image();
+            s.src = "img/smile-off-2.png";
+            
+            
+            smileChange.start();
+            
+            $(".third .smile img").mouseenter(function () {
+            	smileChange.stop();
+            	//console.log(smileChange.intervalId);
+            }).mouseleave(function () {
+            	smileChange.start();
+            });
+            
             /*imageFitDiv($(".hearttalk"),900.0,748);*/
 					            
        	},
@@ -159,6 +173,31 @@ $(document).ready(function() {
     		left:(span.parent().find("img").width()-span.width())/2.0+"px",
     		top:(span.parent().find("img").height()-span.height())/2.0+"px"
     	});
+    }
+    
+    var smileChange = {
+    	start:function(){
+    		var that = this;//内层的内层函数的this会出问题
+    		this.intervalId = setInterval(function () {
+    			clearTimeout(that.timeoutId);
+    			$(".third .smile img").attr("src","img/smile-on-2.png");
+    			that.timeoutId = setTimeout(function () {
+    				$(".third .smile img").attr("src","img/smile-off-2.png");
+    			},500);
+    			console.log("start  timeout ID "+that.timeoutId);
+    		},1000);
+    		
+    		
+    	},
+    	stop:function(){
+    		console.log("stop timeout id"+this.timeoutId);
+    		clearInterval(this.intervalId);
+    		clearTimeout(this.timeoutId);
+    		console.log("stop interval id"+this.intervalId);
+    	},
+    	changing:0,
+    	intervalId : 0,
+    	timeoutId : 0
     }
     
 
