@@ -1,7 +1,10 @@
 var pillowsInitialed = 0;
 $(document).ready(function() {
 	
-	
+	var p1 = new Image();
+	p1.src = "img/phone1.png";
+	var p2 = new Image();
+	p2.src = "img/phone2.png";
 	
 	if($("html").width()>1800){
 		$(".container").addClass("w1800");
@@ -15,46 +18,7 @@ $(document).ready(function() {
     	afterLoad:function(anchorLink, index){
     		
     		
-    		
-    		//星星定位
-    		$(".star img").css("bottom",$(".star").height()*0.2+"px");
-    		$(window).resize(function () {
-    			//星星
-    			$(".star img").css("bottom",$(".star").height()*0.2+"px");
-    			//枕头
-    			initPillows();
-    			initPops();
-    			initHearts();
-    			initConn();
-    		});
-    		
-    		var p1 = new Image();
-			p1.src = "img/phone1.png";
-			var p2 = new Image();
-			p2.src = "img/phone2.png";
-       					       		
-       		$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
-       		$(".phone2").css("top",$(".phones").height()-$(".phone2").height()/2.0+"px");
-       		
-       		$(".phone1").animate({
-       			opacity: 0.9,
-			    top: "-="+(923.0/2-135.0)*$(".phone1").height()/p1.height+"px"
-       		},2000,function(){
-        		$(".star").animate({
-       				opacity:1
-       			},2000);	
-       		});
-       		
-       		
-       		$(".phone2").animate({
-       			opacity: 1,
-			    top: "-="+(801.0/2-120.0)*$(".phone2").height()/p2.height+"px"
-       		},2000,function(){
-       		});
-       		
-       		//对starmoon设置宽度，以便使用margin 0 auto来居中
-       		$(".hablock .starmoon").width($(".hablock .help img").width());
-       		
+    		initMobiles();
        		initPillows();
        		
        	},
@@ -66,9 +30,7 @@ $(document).ready(function() {
             //防止第一页加载未渲染好时 出现第二页内容
             $(".second .starmoon").css("display","block");
             
-            //预读图片
-            var s = new Image();
-            s.src = "img/smile-off-2.png";
+            
             
             
             smileChange.start();
@@ -82,6 +44,21 @@ $(document).ready(function() {
             
             
             initHouse();
+            
+            
+    		$(window).resize(function () {
+    			$.fn.fullpage.reBuild();
+    			
+    			$(".phone1").stop();
+       			$(".phone2").stop();
+    			initMobiles();
+    			initPillows();
+    			initPops();
+    			initHearts();
+    			initConn();
+    			initHouse();
+    		});
+            
             
             
             /*imageFitDiv($(".hearttalk"),900.0,748);*/
@@ -108,9 +85,38 @@ $(document).ready(function() {
        	
     });
     
+    //初始化两个手机
+    function initMobiles() {
+		$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
+		$(".phone2").css("top",$(".phones").height()-$(".phone2").height()/2.0+"px");
+		
+		$(".phone1").animate({
+			opacity: 0.9,
+		    top: "-="+(923.0/2-135.0)*$(".phone1").height()/p1.height+"px"
+		},2000,function(){
+			$(".star").animate({
+				opacity:1
+			},2000);	
+		});
+		
+		
+		$(".phone2").animate({
+			opacity: 1,
+		    top: "-="+(801.0/2-120.0)*$(".phone2").height()/p2.height+"px"
+		},2000,function(){
+		});    	
+		
+		//星星定位
+    	$(".star img").css("bottom",$(".star").height()*0.2+"px");
+    }
+
+    
     //使枕头的图片适应div
     function initPillows(){
     	imageFitDiv($(".pillows"),1022.0,137);
+    	
+    	//对starmoon设置宽度，以便使用margin 0 auto来居中
+   		$(".hablock .starmoon").width($(".hablock .help img").width());
     }
     
     //初始化pop提示框的位置
