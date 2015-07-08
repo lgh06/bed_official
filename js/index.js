@@ -1,4 +1,3 @@
-var pillowsInitialed = 0;
 $(document).ready(function() {
 	
 	var p1 = new Image();
@@ -293,13 +292,14 @@ $(document).ready(function() {
     });
 	    				
 	function parallax(e){
-		//console.log(this);
 		var offset = $(this).offset();
 		var x1 = offset.left;
 		var y1 = offset.top;
 		
-		var centerX = x1 + $(this).find(".house").width()/2.0;
-		var centerY = y1 + $(this).find(".house").height()/2.0;
+		var w = $(this).find(".house").width();
+		var h = $(this).find(".house").height();
+		var centerX = x1 + w/2.0;
+		var centerY = y1 + h/2.0;
 		
 		var x2 = e.clientX;
 		var y2 = e.clientY;
@@ -322,7 +322,7 @@ $(document).ready(function() {
 			'top':dcY*0.05+"px"
 		});
 		
-		deg = parseInt(moveY/$(this).find(".house").height()*0.2*360);
+		deg = parseInt(moveY/h*0.2*360);
 		if(!degPlused){
 			deg+=lastDeg;
 		}
@@ -335,10 +335,6 @@ $(document).ready(function() {
 		$(".fifth .house").css({
 			'transform':"translate("+(-dcX*0.02)+"px,"+(-dcY*0.02)+"px)"
 		});
-		
-		
-		//console.log(dcX);
-		//console.log(dcY);
 	}
     
 
