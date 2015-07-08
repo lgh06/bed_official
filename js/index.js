@@ -80,6 +80,13 @@ $(document).ready(function() {
             	smileChange.start();
             });
             
+            
+            houseFitDiv();
+            /*$(".fifth .house").css({
+            	bottom:-235.0/720*$(".fifth .house").height()+"px",
+            	
+            });*/
+            
             /*imageFitDiv($(".hearttalk"),900.0,748);*/
 					            
        	},
@@ -164,6 +171,21 @@ $(document).ready(function() {
     		$(div).find("img").height(w/imgOriginWidth*imgOriginHeight+"px");
     		
     	}      	
+    }
+    
+    //第五页房子适应div
+    function houseFitDiv(){
+    	var div = $(".fifth .center");
+    	var w = div.width();
+    	var h = div.height();
+    	if(w/h >= 721.0/720){
+    		$(div).find("img.house").height(h/486.0*720+"px");
+    		$(div).find("img.house").width($(div).find("img.house").height()/720.0*721+"px");
+    	}else{
+    		$(div).find("img.house").width(w+"px");
+    		$(div).find("img.house").height(w/721.0*720+"px");
+    		
+    	}        	
     }
     
     //定位三个pop框
