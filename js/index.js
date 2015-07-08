@@ -268,10 +268,77 @@ $(document).ready(function() {
     	timeoutId : 0
     }
     
-    $(".fifth .house").mousemove(test);
+    /*第五页 视差部分*/
+    //记录鼠标进入时的坐标,上次月亮的角度 此次月亮的角度 上次角度是否加上
+    var enterX=0,enterY=0,lastDeg=0,deg=0,degPlused=0;
+    $(".fifth .housewrap").mouseenter(function(e){
+    	enterX = e.clientX;
+    	enterY = e.clientY;
+    });
+    $(".fifth .housewrap").mousemove(parallax);
+    $(".fifth .housewrap").mouseleave(function (e) {
+		$(".fifth .cloud").css({
+			'left':'0',
+			'top':'0'
+		});
+		lastDeg = deg;
+		$(".fifth .lunar").css({
+			'transform':"none",
+			'transform':"rotate("+(-lastDeg)+"deg)"
+		});
+		$(".fifth .house").css({
+			'transform':"none"
+		});
+		degPlused = 0;
+    });
 	    				
-	function test(e){
-		console.log(e.clientX);
+	function parallax(e){
+		//console.log(this);
+		var offset = $(this).offset();
+		var x1 = offset.left;
+		var y1 = offset.top;
+		
+		var centerX = x1 + $(this).find(".house").width()/2.0;
+		var centerY = y1 + $(this).find(".house").height()/2.0;
+		
+		var x2 = e.clientX;
+		var y2 = e.clientY;
+		
+		var deltaX = x2 - x1;
+		var deltaY = y2 - y1;
+		
+		//delta center
+		var dcX = x2 - centerX;
+		var dcY = y2 - centerY;
+		
+		//move delta
+		var moveX = x2 - enterX;
+		var moveY = y2 - enterY;
+		
+		
+		//cloud CSS 设置
+		$(".fifth .cloud").css({
+			'left':dcX*0.05+"px",
+			'top':dcY*0.05+"px"
+		});
+		
+		deg = parseInt(moveY/$(this).find(".house").height()*0.2*360);
+		if(!degPlused){
+			deg+=lastDeg;
+		}
+		//lunar CSS 设置
+		$(".fifth .lunar").css({
+			'transform':"translate("+(-dcX*0.05)+"px,"+(-dcY*0.1)+"px)",
+			'transform':"rotate("+(-deg)+"deg)"
+		});
+		
+		$(".fifth .house").css({
+			'transform':"translate("+(-dcX*0.02)+"px,"+(-dcY*0.02)+"px)"
+		});
+		
+		
+		//console.log(dcX);
+		//console.log(dcY);
 	}
     
 
