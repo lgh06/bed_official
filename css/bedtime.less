@@ -423,12 +423,32 @@
             }
             .center{
                 height: 70%;
-                position: relative;
                 overflow: hidden;
-                .house{
-                    display: block;
+                .housewrap{
+                    height: 100%;
                     margin: 0 auto;
+                    position: relative;
+                    .house{
+                        
+                    }
+                    .cloud{
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .lunar{
+                        position: absolute;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
                 }
+                
             }
         }
         .footer{

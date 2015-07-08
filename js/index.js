@@ -81,11 +81,8 @@ $(document).ready(function() {
             });
             
             
-            houseFitDiv();
-            /*$(".fifth .house").css({
-            	bottom:-235.0/720*$(".fifth .house").height()+"px",
-            	
-            });*/
+            initHouse();
+            
             
             /*imageFitDiv($(".hearttalk"),900.0,748);*/
 					            
@@ -159,6 +156,37 @@ $(document).ready(function() {
     	imageFitDiv($(".connection"),312.0,463);
     }
     
+    //第五页房子月亮部分
+    function initHouse(){
+    	houseFitDiv();
+    	
+    	//定位乌云
+    	
+    	$(".fifth .cloud").css({
+    		width:$(".fifth .house").width()+"px",
+    		height:$(".fifth .house").height()+"px"
+    	});
+    	
+    	//定位月亮 大图版本
+    	/*$(".fifth .lunar").css({
+    		width:$(".fifth .house").width()+"px",
+    		height:$(".fifth .house").height()+"px"
+    	});*/
+    	
+    	//定位月亮 小图版本
+    	$(".fifth .lunar").css({
+    		width:141.0/720*$(".fifth .house").width()+"px",
+    		height:118.0/720*$(".fifth .house").height()+"px",
+    		left:361.0/720*$(".fifth .house").height()+"px",
+    		top:103.0/720*$(".fifth .house").width()+"px"
+    	});
+    	
+    	
+    	
+    }
+    
+    
+    
     //使图片适应div，宽高等比例，不超过div
     function imageFitDiv(div,imgOriginWidth,imgOriginHeight){
     	var w = $(div).width();
@@ -180,12 +208,15 @@ $(document).ready(function() {
     	var h = div.height();
     	if(w/h >= 721.0/720){
     		$(div).find("img.house").height(h/486.0*720+"px");
-    		$(div).find("img.house").width($(div).find("img.house").height()/720.0*721+"px");
+    		$(div).find("img.house,.housewrap").width($(div).find("img.house").height()/720.0*721+"px");
     	}else{
     		$(div).find("img.house").width(w+"px");
     		$(div).find("img.house").height(w/721.0*720+"px");
     		
-    	}        	
+    	}
+    	
+    	//$(div).find("img.house").wrap("<div class=\"housewrap\"></div>");
+    	
     }
     
     //定位三个pop框
@@ -215,7 +246,7 @@ $(document).ready(function() {
     			that.timeoutId = setTimeout(function () {
     				$(".third .smile img").attr("src","img/smile-off-2.png");
     			},500);
-    			console.log("start  timeout ID "+that.timeoutId);
+    			//console.log("start  timeout ID "+that.timeoutId);
     		},1000);
     		
     		
@@ -230,6 +261,12 @@ $(document).ready(function() {
     	intervalId : 0,
     	timeoutId : 0
     }
+    
+    $(".fifth .house").mousemove(test);
+	    				
+	function test(e){
+		console.log(e.clientX);
+	}
     
 
     
