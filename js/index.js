@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+	console.log(navigator.userAgent)
 	var p1 = new Image();
 	p1.src = "img/phone1.png";
 	var p2 = new Image();
@@ -316,7 +316,8 @@ $(document).ready(function() {
     //,上次月亮的角度 此次月亮的角度 上次角度是否加上
     var lastDeg=0,deg=0,degPlused=0;
     $(".fifth .housewrap").mouseenter(function(e){
-
+    	enterX = e.clientX;
+    	enterY = e.clientY;   
     });
     $(".fifth .housewrap").mousemove({find:".house",section:"house"},parallax);
     $(".fifth .housewrap").mouseleave(function (e) {
