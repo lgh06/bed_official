@@ -112,7 +112,7 @@ $(document).ready(function() {
     
     //使枕头的图片适应div
     function initPillows(){
-    	imageFitDiv($(".pillows"),1022.0,137);
+    	imageFitDiv($(".pillows"),"img",1022.0,137);
     	
     	//对starmoon设置宽度，以便使用margin 0 auto来居中
    		$(".hablock .starmoon").width($(".hablock .help img").width());
@@ -120,9 +120,9 @@ $(document).ready(function() {
     
     //初始化pop提示框的位置
     function initPops(){
-    	imageFitDiv($(".pop1"),230.0,149);
-    	imageFitDiv($(".pop2"),230.0,149);
-    	imageFitDiv($(".pop3"),230.0,149);
+    	imageFitDiv($(".pop1"),"img",230.0,149);
+    	imageFitDiv($(".pop2"),"img",230.0,149);
+    	imageFitDiv($(".pop3"),"img",230.0,149);
     	
     	//pop1在原图的位置：left 70
     	//原图 pillows 773 103
@@ -158,7 +158,8 @@ $(document).ready(function() {
     
     //使联系的图片适应div
     function initConn(){
-    	imageFitDiv($(".connection"),312.0,463);
+    	//imageFitDiv($(".connection"),"img",312.0,463);
+    	imageFitDiv(".connection",".connwrap",500.0,742.0,"");
     }
     
     //第五页房子月亮部分
@@ -193,15 +194,15 @@ $(document).ready(function() {
     
     
     //使图片适应div，宽高等比例，不超过div
-    function imageFitDiv(div,imgOriginWidth,imgOriginHeight){
+    function imageFitDiv(div,find,imgOriginWidth,imgOriginHeight){
     	var w = $(div).width();
     	var h = $(div).height();
     	if(w/h >= imgOriginWidth/imgOriginHeight){
-    		$(div).find("img").height(h+"px");
-    		$(div).find("img").width(h/imgOriginHeight*imgOriginWidth+"px");
+    		$(div).find(find).height(h+"px");
+    		$(div).find(find).width(h/imgOriginHeight*imgOriginWidth+"px");
     	}else{
-    		$(div).find("img").width(w+"px");
-    		$(div).find("img").height(w/imgOriginWidth*imgOriginHeight+"px");
+    		$(div).find(find).width(w+"px");
+    		$(div).find(find).height(w/imgOriginWidth*imgOriginHeight+"px");
     		
     	}      	
     }

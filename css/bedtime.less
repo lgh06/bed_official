@@ -368,12 +368,47 @@
             .connection{
                 height: 100%;
                 width: 100%;
-                position: relative;
-                img{
-                    //position: absolute;
-                    //bottom: 0;
+                .connwrap{
                     margin: 0 auto;
-                    display: block;
+                    text-align: center;
+                    position: relative;
+                }
+                .f1b{
+                    width: 100%;
+                    height: 100%;
+                    display: inline-block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    .f1{
+                        height: 100%;
+                    }
+                }
+                .f2b{
+                    overflow: hidden;
+                    width: 32%;
+                    height: 80%;
+                    float: left;
+                    position: absolute;
+                    left: 18%;
+                    bottom: 0;  
+                    .f2{
+                        width: 200%;
+                    }
+                }
+                .f3b{
+                    overflow: hidden;
+                    width: 32%;
+                    height: 80%;
+                    float: right;
+                    position: absolute;
+                    right: 18%;
+                    bottom: 0;      
+                    .f3{
+                        position: relative;
+                        right: 100%;
+                        width: 200%;
+                    }
                 }
             }
        }
