@@ -98,7 +98,9 @@ $(document).ready(function() {
 		},2000,function(){
 			$(".star").animate({
 				opacity:1
-			},2000);	
+			},1500,function(){//显示下载链接 二维码
+				$(".first .downblock").fadeIn(1000);
+			});
 		});
 		
 		
