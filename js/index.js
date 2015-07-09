@@ -47,21 +47,25 @@ $(document).ready(function() {
             
     		$(window).resize(function () {
     			$.fn.fullpage.reBuild();
-    			
     			$(".phone1").stop();
        			$(".phone2").stop();
-    			initMobiles();
-    			initPillows();
-    			initPops();
-    			initHearts();
-    			initConn();
-    			initHouse();
     		});
             
             
             
             /*imageFitDiv($(".hearttalk"),900.0,748);*/
 					            
+       	},
+       	afterReBuild:function(){
+    			initMobiles();
+    			initPillows();
+    			initPops();
+    			initHearts();
+    			//使connection部分的f2 f3大小重新计算
+    			$(".connection .f2").removeAttr("style");
+    			$(".connection .f3").removeAttr("style");
+    			initConn();
+    			initHouse();	
        	},
        	onLeave:function(index, nextIndex, direction){
        		$(".phone1").stop();
@@ -160,6 +164,20 @@ $(document).ready(function() {
     function initConn(){
     	//imageFitDiv($(".connection"),"img",312.0,463);
     	imageFitDiv(".connection",".connwrap",500.0,742.0,"");
+    	
+    	//使f2 f3图片的大小不随父级百分比变化而再次变化
+    	//为监听鼠标事件 transform
+    	$(".connection .f2").css({
+    		width:$(".connection .f2").width()+'px',
+    		height:$(".connection .f2").height()+'px'
+    	});
+    	$(".connection .f3").css({
+    		width:$(".connection .f3").width()+'px',
+    		height:$(".connection .f3").height()+'px'
+    	});
+    	console.log(getNowStyle($(".f3b")[0],"width"));
+
+    	//然后增大f2b f3b的宽度 
     }
     
     //第五页房子月亮部分
@@ -204,7 +222,7 @@ $(document).ready(function() {
     		$(div).find(find).width(w+"px");
     		$(div).find(find).height(w/imgOriginWidth*imgOriginHeight+"px");
     		
-    	}      	
+    	}
     }
     
     //第五页房子适应div
@@ -268,14 +286,24 @@ $(document).ready(function() {
     	timeoutId : 0
     }
     
-    /*第五页 视差部分*/
-    //记录鼠标进入时的坐标,上次月亮的角度 此次月亮的角度 上次角度是否加上
-    var enterX=0,enterY=0,lastDeg=0,deg=0,degPlused=0;
-    $(".fifth .housewrap").mouseenter(function(e){
+    //记录鼠标进入时的坐标
+    var enterX=0,enterY=0;
+    
+    /* 第四页 视差部分*/
+    $(".fourth .connection")
+    .mouseenter(function (e) {
     	enterX = e.clientX;
-    	enterY = e.clientY;
+    	enterY = e.clientY;    	
+    })
+    .mousemove({find:".fourth .connection",section:"connection"},parallax);
+    
+    /*第五页 视差部分*/
+    //,上次月亮的角度 此次月亮的角度 上次角度是否加上
+    var lastDeg=0,deg=0,degPlused=0;
+    $(".fifth .housewrap").mouseenter(function(e){
+
     });
-    $(".fifth .housewrap").mousemove(parallax);
+    $(".fifth .housewrap").mousemove({find:".house",section:"house"},parallax);
     $(".fifth .housewrap").mouseleave(function (e) {
 		$(".fifth .cloud").css({
 			'left':'0',
@@ -291,14 +319,19 @@ $(document).ready(function() {
 		});
 		degPlused = 0;
     });
-	    				
+	
+	
 	function parallax(e){
 		var offset = $(this).offset();
 		var x1 = offset.left;
 		var y1 = offset.top;
 		
-		var w = $(this).find(".house").width();
-		var h = $(this).find(".house").height();
+		//find可能和当前元素相同
+		var find = $(this).find(e.data.find)[0];
+		find||(find = $(this));
+		
+		var w = $(find).width();
+		var h = $(find).height();
 		var centerX = x1 + w/2.0;
 		var centerY = y1 + h/2.0;
 		
@@ -316,26 +349,38 @@ $(document).ready(function() {
 		var moveX = x2 - enterX;
 		var moveY = y2 - enterY;
 		
-		
-		//cloud CSS 设置
-		$(".fifth .cloud").css({
-			'left':dcX*0.05+"px",
-			'top':dcY*0.05+"px"
-		});
-		
-		deg = parseInt(moveY/h*0.2*360);
-		if(!degPlused){
-			deg+=lastDeg;
+		//第四页 connection部分
+		if(e.data.section == "connection"){
+			
 		}
-		//lunar CSS 设置
-		$(".fifth .lunar").css({
-			'transform':"translate("+(-dcX*0.05)+"px,"+(-dcY*0.1)+"px)",
-			'transform':"rotate("+(-deg)+"deg)"
-		});
+		//第五页 house部分
+		if(e.data.section == "house"){
+			//cloud CSS 设置
+			$(".fifth .cloud").css({
+				'left':dcX*0.05+"px",
+				'top':dcY*0.05+"px"
+			});
+			
+			deg = parseInt(moveY/h*0.2*360);
+			if(!degPlused){
+				deg+=lastDeg;
+			}
+			//lunar CSS 设置
+			$(".fifth .lunar").css({
+				'transform':"translate("+(-dcX*0.05)+"px,"+(-dcY*0.1)+"px)",
+				'transform':"rotate("+(-deg)+"deg)"
+			});
+			
+			$(".fifth .house").css({
+				'transform':"translate("+(-dcX*0.02)+"px,"+(-dcY*0.02)+"px)"
+			});
+			
+		}
 		
-		$(".fifth .house").css({
-			'transform':"translate("+(-dcX*0.02)+"px,"+(-dcY*0.02)+"px)"
-		});
+	}
+	
+	var getNowStyle = function (element,attr){
+		return element.currentStyle?element.currentStyle[attr]:getComputedStyle(element,null)[attr];
 	}
     
 
