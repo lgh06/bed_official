@@ -62,10 +62,9 @@ $(document).ready(function() {
     			initPops();
     			initHearts();
     			//使connection部分的f2 f3大小重新计算
-    			$(".connection .f2").removeAttr("style");
-    			$(".connection .f3").removeAttr("style");
+    			$(".connection .f2,.connection .f2b,.connection .f3,.connection .f3b").removeAttr("style");
     			initConn();
-    			initHouse();	
+    			initHouse();
        	},
        	onLeave:function(index, nextIndex, direction){
        		$(".phone1").stop();
@@ -165,6 +164,9 @@ $(document).ready(function() {
     	//imageFitDiv($(".connection"),"img",312.0,463);
     	imageFitDiv(".connection",".connwrap",500.0,742.0,"");
     	
+    	
+    	originf2bW = $(".fourth .connection .f2b").width();
+    	originf3bW = $(".fourth .connection .f3b").width();
     	//使f2 f3图片的大小不随父级百分比变化而再次变化
     	//为监听鼠标事件 transform
     	$(".connection .f2").css({
@@ -175,7 +177,7 @@ $(document).ready(function() {
     		width:$(".connection .f3").width()+'px',
     		height:$(".connection .f3").height()+'px'
     	});
-    	console.log(getNowStyle($(".f3b")[0],"width"));
+    	//console.log(getNowStyle($(".f3b")[0],"width"));
 
     	//然后增大f2b f3b的宽度 
     }
@@ -290,12 +292,21 @@ $(document).ready(function() {
     var enterX=0,enterY=0;
     
     /* 第四页 视差部分*/
+   	var originf2bW = 0,originf3bW = 0;
     $(".fourth .connection")
     .mouseenter(function (e) {
     	enterX = e.clientX;
     	enterY = e.clientY;    	
     })
-    .mousemove({find:".fourth .connection",section:"connection"},parallax);
+    .mousemove({find:".fourth .connection",section:"connection"},parallax)
+    .mouseleave(function(e){
+    	$(".f2b").width(originf2bW).css({
+			'transform':'none'
+		});
+    	$(".f3b").width(originf3bW).css({
+			'transform':'none'
+		});		
+    });
     
     /*第五页 视差部分*/
     //,上次月亮的角度 此次月亮的角度 上次角度是否加上
@@ -322,6 +333,7 @@ $(document).ready(function() {
 	
 	
 	function parallax(e){
+		var that = this;
 		var offset = $(this).offset();
 		var x1 = offset.left;
 		var y1 = offset.top;
@@ -352,6 +364,19 @@ $(document).ready(function() {
 		//第四页 connection部分
 		if(e.data.section == "connection"){
 			
+			if(dcX < 0 ){
+				var nowf2W = originf2bW - dcX*0.1;
+				$(that).find(".f2b").width(nowf2W).css({
+					'transform':'translate('+(dcX*0.1)+'px,'+'0px)'
+				});
+			}else{
+				var nowf3W = originf3bW + dcX*0.1;
+				$(that).find(".f3b").width(nowf3W).css({
+					'transform':'translate('+(dcX*0.1)+'px,'+'0px)'
+				});				
+				
+				
+			}
 		}
 		//第五页 house部分
 		if(e.data.section == "house"){
