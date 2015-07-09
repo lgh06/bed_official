@@ -303,10 +303,12 @@ $(document).ready(function() {
     .mousemove({find:".fourth .connection",section:"connection"},parallax)
     .mouseleave(function(e){
     	$(".f2b").width(originf2bW).css({
-			'transform':'none'
+			'transform':'none',
+			'-webkit-transform':'none'
 		});
     	$(".f3b").width(originf3bW).css({
-			'transform':'none'
+			'transform':'none',
+			'-webkit-transform':'none'
 		});		
     });
     
@@ -325,10 +327,13 @@ $(document).ready(function() {
 		lastDeg = deg;
 		$(".fifth .lunar").css({
 			'transform':"none",
-			'transform':"rotate("+(-lastDeg)+"deg)"
+			'-webkit-transform':"none",
+			'transform':"rotate("+(-lastDeg)+"deg)",
+			'-webkit-transform':"rotate("+(-lastDeg)+"deg)",
 		});
 		$(".fifth .house").css({
-			'transform':"none"
+			'transform':"none",
+			'-webkit-transform':"none"
 		});
 		degPlused = 0;
     });
@@ -369,12 +374,14 @@ $(document).ready(function() {
 			if(dcX < 0 ){
 				var nowf2W = originf2bW - dcX*0.1;
 				$(that).find(".f2b").width(nowf2W).css({
-					'transform':'translate('+(dcX*0.1)+'px,'+'0px)'
+					'transform':'translate('+(dcX*0.1)+'px,'+'0px)',
+					'-webkit-transform':'translate('+(dcX*0.1)+'px,'+'0px)'
 				});
 			}else{
 				var nowf3W = originf3bW + dcX*0.1;
 				$(that).find(".f3b").width(nowf3W).css({
-					'transform':'translate('+(dcX*0.1)+'px,'+'0px)'
+					'transform':'translate('+(dcX*0.1)+'px,'+'0px)',
+					'-webkit-transform':'translate('+(dcX*0.1)+'px,'+'0px)'
 				});				
 				
 				
@@ -395,11 +402,14 @@ $(document).ready(function() {
 			//lunar CSS 设置
 			$(".fifth .lunar").css({
 				'transform':"translate("+(-dcX*0.05)+"px,"+(-dcY*0.1)+"px)",
-				'transform':"rotate("+(-deg)+"deg)"
+				'-webkit-transform':"translate("+(-dcX*0.05)+"px,"+(-dcY*0.1)+"px)",
+				'transform':"rotate("+(-deg)+"deg)",
+				'-webkit-transform':"rotate("+(-deg)+"deg)"
 			});
 			
 			$(".fifth .house").css({
-				'transform':"translate("+(-dcX*0.02)+"px,"+(-dcY*0.02)+"px)"
+				'transform':"translate("+(-dcX*0.02)+"px,"+(-dcY*0.02)+"px)",
+				'-webkit-transform':"translate("+(-dcX*0.02)+"px,"+(-dcY*0.02)+"px)"
 			});
 			
 		}
