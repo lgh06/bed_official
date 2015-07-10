@@ -16,8 +16,12 @@ $(document).ready(function() {
     	anchors:['firstPage', 'secondPage', 'thirdPage','fourthPage','fifthPage'],
     	afterLoad:function(anchorLink, index){
     		
-    		
-    		initMobiles();
+    		if(index == 1){
+	    		initMobiles();
+    		}else{
+    			$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
+       			$(".phone2").css("top",$(".phones").height()-$(".phone2").height()/2.0+"px");
+    		}
        		initPillows();
        		
        	},
@@ -70,8 +74,7 @@ $(document).ready(function() {
        		$(".phone1").stop();
        		$(".phone2").stop();
        		if(index != 1){
-       			$(".phone1").css("top",$(".phones").height()-$(".phone1").height()/2.0+"px");
-       			$(".phone2").css("top",$(".phones").height()-$(".phone2").height()/2.0+"px");
+       			
        		}
        		
        		if(nextIndex == 2){
