@@ -7,6 +7,7 @@ $(document).ready(function() {
 	
 	if($("html").width()>1800){
 		$(".container").addClass("w1800");
+		$(".fifth .center").addClass("w1800");
 	};
 	
     $('#fullpage').fullpage({
