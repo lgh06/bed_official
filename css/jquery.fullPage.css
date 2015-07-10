@@ -91,6 +91,8 @@ html.fp-enabled,
     -webkit-transition: none !important;
     transition: none !important;
 }
+
+/* TODO */
 #fp-nav {
     position: fixed;
     z-index: 100;
@@ -105,6 +107,7 @@ html.fp-enabled,
 #fp-nav.left {
     left: 17px;
 }
+
 .fp-slidesNav{
     position: absolute;
     z-index: 4;
@@ -122,6 +125,9 @@ html.fp-enabled,
   margin: 0;
   padding: 0;
 }
+
+
+/* TODO */
 #fp-nav ul li,
 .fp-slidesNav ul li {
     display: block;
@@ -133,6 +139,8 @@ html.fp-enabled,
 .fp-slidesNav ul li {
     display: inline-block;
 }
+
+/* TODO */
 #fp-nav ul li a,
 .fp-slidesNav ul li a {
     display: block;
@@ -143,6 +151,8 @@ html.fp-enabled,
     cursor: pointer;
     text-decoration: none;
 }
+
+/* TODO */
 #fp-nav ul li a.active span,
 .fp-slidesNav ul li a.active span,
 #fp-nav ul li:hover a.active span,
@@ -152,6 +162,8 @@ html.fp-enabled,
     margin: -6px 0 0 -6px;
     border-radius: 100%;
  }
+ 
+ /* TODO */
 #fp-nav ul li a span,
 .fp-slidesNav ul li a span {
     border-radius: 50%;
@@ -169,6 +181,8 @@ html.fp-enabled,
     -o-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out;
 }
+
+/* TODO */
 #fp-nav ul li:hover a span,
 .fp-slidesNav ul li:hover a span{
     width: 10px;
