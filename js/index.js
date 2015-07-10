@@ -83,6 +83,11 @@ $(document).ready(function() {
        		if(nextIndex == 4){
        			initConn();
        		}
+       		if(nextIndex == 5 || nextIndex == 3){
+       			$("#fp-nav").hide();
+       		}else{
+       			$("#fp-nav").show();
+       		}
        	}
        	
     });
