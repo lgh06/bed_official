@@ -1,5 +1,18 @@
 @charset "utf-8";
 @font-yy:"Youyuan","幼圆","SYHT","微软雅黑","Microsoft Yahei","Heiti";
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
 .container{
     width: 100%;
     height: 100%;
@@ -10,499 +23,56 @@
     height: 100%;
 }
 
-@-webkit-keyframes myrotate{
-    0%{
-        -webkit-transform : rotate(0deg);
-    }    
-    100%{
-        -webkit-transform : rotate(360deg);
-    }
-}
-@-moz-keyframes myrotate{
-    0%{
-        -moz-transform : rotate(0deg);
-    }
-    100%{
-        -moz-transform : rotate(360deg);
-    }
-}
-@-ms-keyframes myrotate{
-    0%{
-        -ms-transform : rotate(0deg);
-    }
-    100%{
-        -ms-transform : rotate(360deg);
-    }
-}
-@keyframes myrotate{
-    0%{
-        transform : rotate(0deg);
-    }
-    100%{
-        transform : rotate(360deg);
-    }
-}
-
 .pcindex{
     
 
     
     .first{
-        background-color: #6a3589;
-        height: 100%;
-        width: 100%;
-        .vline{
-            height: 60%;
-            width:2px;
-            *width: 4px;
-            background-color: #efde01;
-            margin: 0 auto;
-            border: 1px solid #e5d20b;
-            border-style: none solid none solid;
-        }
-        .phonesblock{
-            width:50%;
-            height: 80%;
-            background-color: inherit;
-            background-color: transparent;
-            float: left;
-            position: absolute;
-            bottom: 0;
-            .phones{
-                width:80%;
-                height: 100%;
-                margin: 0 auto;
-                .phone1,.phone2{
-                    opacity: 0;
-                    
-                    //position: absolute;
-                   // bottom: 0;
-                }
-                .phone1{
-                    float: left;
-                    width: 50%;
-                    position: relative;
-                }
-                .phone2{
-                    float: right;
-                    width: 45%;
-                    position: relative;
-                    right: 20%;
-                }
-                
-            }
-        }
-        .downblock{
-            display: none;
-            width: 40%;
-            height: 100%;
+        .up{
+            height: 60px;
+            width: 25%;
             float: right;
-            background-color: inherit;
-            background-color: transparent;
-            .down{
-                margin-top: 10%;
-                max-width: 544px;
-                width: 80%;
-            }
-        }
-        .star{
-            opacity: 0;
-            width: 12%;
-            height: 30%;
-            background-color: transparent;
-            background-color: inherit;
-            margin: 0 auto;
             position: relative;
-            z-index: 0;
-            text-align: center;
-            img{
-                position: relative;
-                bottom: 10%;
-                height: 40%;
-                max-width: 100%;
-                margin: 0 auto;
-                
-                -webkit-animation: myrotate 5s infinite linear;
-                animation: myrotate 5s infinite linear;
-                
-                &:hover{
-                    -webkit-animation-play-state: paused;
-                    animation-play-state: paused;    
+            right: 25%;
+            background-color: black;
+            color: white;
+            .download,.wb,.wx{
+                display: inline-block;
+                height: 100%;
+                width: 31%;
+                text-align: center;
+                margin-right: 2px;
+                background-color: darkslategray;
+                img,svg{
+                    max-width:100px;
+                    height: 100%;
                 }
+            }
+            .download{
+                //background-image: url(../img/download.svg);
+            }
+            .wb{
+                //background-image: url(../img/wb.svg);
+            }
+            .wx{
+                //background-image: url(../img/wx.svg);
+            }
+            
+        }
+        .down{
+            .main{
+                
+            }
+            .earth{
+                
             }
         }
     }
     .second{
-        background-color: #eeeeee;
-        
-        .vline{
-            height: 60%;
-            width:2px;
-            *width: 4px;
-            background-color: #722d98;
-            margin: 0 auto;
-        }
-        
-        .container{
-            position: relative;//有绝对定位，防止寻找父元素出现差错
-        }
-        .hablock{
-            width: 65%;
-            background-color: transparent;
-            background-color: inherit;
-            height: 80%;
-            float: left;
-            position: absolute;
-            bottom: 0;
-            .starmoon{
-                display: none;//防止第一页加载未渲染好时 出现第二页内容
-                height: 20%;
-                margin: 0 auto;
-                position: relative;
-                img{
-                    position: absolute;
-                    bottom: 0;
-                    width: 100%;
-                }
-            }
-            .help{
-                height: 40%;
-                width: 100%;
-                img{
-                    height: 100%;
-                    display: block;
-                    margin: 0 auto;
-                }
-            }
-            .answer{
-                height: 40%;
-                width: 100%;
-                position: relative;
-                .answers{
-                    height: 45%;
-                    width: 100%;
-                    position: relative;
-                    .pop1,.pop2,.pop3{
-                        height: 100%;
-                        width:32%;
-                        position: absolute;
-                        img{
-                            //position: relative;
-                        }
-                        span{
-                            position: absolute;
-                            font-family: "微软雅黑","黑体","Heiti";
-                        }
-                    }
-                    .pop1,.pop2,.pop3{
-                        
-                    }
-                }
-                .pillows{
-                    position: absolute;
-                    bottom: 0;
-                    height: 55%;
-                    width: 100%;
-                    //text-align: center;
-                    img{
-                        height: 70%;
-                        //position: absolute;
-                        //bottom: 0;
-                        display: block;
-                        margin: 0 auto;
-                    }
-                }
-
-                
-            }
-        }
-        .yewenblock{
-            width:35%;
-            height: 100%;
-            float: right;
-            display: table;
-            
-            .yewen{
-                display: table-cell;
-                vertical-align: middle;
-                .title{
-                    font-family:@font-yy;
-                    color: #6b318b;
-                    font-size: 24px;
-                    font-weight: 600;
-                }
-                .content{
-                    font-family:@font-yy;
-                    font-size: 24px;
-                }    
-            }
-            
-        }
-        .ball{
-            position: absolute;
-            right: 10%;
-            top: 0;
-            z-index: 0;
-            //opacity: 0;
-            width: 12%;
-            height: 30%;
-            background-color: transparent;
-            background-color: inherit;
-            margin: 0 auto;
-            text-align: center;
-            img{
-                position: relative;
-                bottom: 1px;
-                height: 40%;
-                max-width: 100%;
-                margin: 0 auto;
-                
-                -webkit-animation: myrotate 5s infinite linear;
-                animation: myrotate 5s infinite linear;
-                
-                &:hover{
-                    -webkit-animation-play-state: paused;
-                    animation-play-state: paused;    
-                }
-            }
-        }
-        
     }
     .third{
-        background-color: #f4e6ff;
-        .vline{
-            height: 60%;
-            width: 2px;
-            background-color: #722d98;
-            margin: 0 auto;
-        }
-        .goodnight{
-            background-color: inherit;
-            background-color: transparent;
-            width:55%;
-            height: 100%;
-            float: right;
-            .hearttalk{
-                width: 100%;
-                height: 88%;//稍微比90%小一些，防止内容溢出 出现滚动条
-                margin-top: 10%;
-                position: relative;
-                img.talk{
-                    max-width: 900px;
-                    width: 80%;
-                    
-                }
-                
-                img.gn{
-                    position: absolute;
-                }
-            }
-            .hearts{
-                img{
-                    
-                }
-            }
-        }
-        .yehuablock{
-            background-color: #f4e6ff;
-            width:45%;
-            height: 100%;
-            float: left;
-            display: table;
-            .yehua{
-                display: table-cell;
-                vertical-align: middle;
-                .title{
-                    .pcindex .second .yewenblock .yewen .title();
-                    text-align: right;
-                }
-                .content{
-                    .pcindex .second .yewenblock .yewen .content();
-                    text-align: right;
-                    
-                }
-            }
-            
-        }
-        .smile{
-            position: absolute;
-            left: 10%;
-            top: 0;
-            z-index: 0;
-            //opacity: 0;
-            width: 12%;
-            height: 30%;
-            background-color: transparent;
-            background-color: inherit;
-            margin: 0 auto;
-            text-align: center;
-            img{
-                position: relative;
-                bottom: 1px;
-                height: 40%;
-                max-width: 100%;
-                margin: 0 auto;
-                
-            }
-            
-        }
     }
     .fourth{
-        background-color: #eeeeee;
-        .vline{
-            height: 60%;
-            width: 2px;
-            background-color: #722d98;
-            margin: 0 auto;
-        }       
-       .container{
-           position: relative;
-       }
-       .connblock{
-            width: 50%;
-            background-color: transparent;
-            background-color: inherit;
-            height: 80%;
-            float: left;
-            position: absolute;
-            bottom: 0;
-            .connection{
-                height: 100%;
-                width: 100%;
-                .connwrap{
-                    margin: 0 auto;
-                    text-align: center;
-                    position: relative;
-                }
-                .f1b{
-                    width: 100%;
-                    height: 100%;
-                    display: inline-block;
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    .f1{
-                        height: 100%;
-                    }
-                }
-                .f2b{
-                    overflow: hidden;
-                    width: 32%;
-                    height: 80%;
-                    float: left;
-                    position: absolute;
-                    left: 18%;
-                    bottom: 0;  
-                    .f2{
-                        width: 200%;
-                    }
-                }
-                .f3b{
-                    overflow: hidden;
-                    width: 32%;
-                    height: 80%;
-                    float: right;
-                    position: absolute;
-                    right: 18%;
-                    bottom: 0;
-                    .f3wrap{
-                        position: relative;
-                        right: 100%;
-                        width: 200%;
-                        .f3{
-                            width: 100%;
-                            display: block;
-                            position: absolute;
-                            right: 0;
-                        }    
-                    }   
-                    
-                }
-            }
-       }
-       .fujinblock{
-           width:49%;
-           height: 100%;
-           float: right;
-           display: table;
-           .fujin{
-               .pcindex .second .yewenblock .yewen();
-           }
-
-       }
-       .loc{
-           position: absolute;
-           left: 50%;
-           top: 0;
-           z-index: 0;
-           //opacity: 0;
-           width: 12%;
-           height: 30%;
-           background-color: transparent;
-           background-color: inherit;
-           margin: 0 auto;
-           text-align: center;
-           img{
-               position: relative;
-               bottom: 1px;
-               height: 40%;
-               max-width: 100%;
-               margin: 0 auto;
-               
-           }           
-       }
-
-       .about{
-           height: 2000px;
-           background-color: red;
-       }
     }
-    .fifth{
-        .aboveblock{
-            height: 70%;
-            background-color: #1C1A36;
-            .above{
-                height: 30%;
-                //background-color: yellow;
-            }
-            .center{
-                height: 70%;
-                overflow: hidden;
-                .housewrap{
-                    height: 100%;
-                    margin: 0 auto;
-                    position: relative;
-                    .house{
-                        
-                    }
-                    .cloud{
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        img{
-                            width: 100%;
-                            height: 100%;
-                        }
-                    }
-                    .lunar{
-                        position: absolute;
-                        img{
-                            width: 100%;
-                            height: 100%;
-                        }
-                    }
-                }
-                
-            }
-        }
-        .footer{
-            height: 30%;
-            background-color: #2C2A4F;
-        }
-    }
-    
-    
-    
-    
     
 }
