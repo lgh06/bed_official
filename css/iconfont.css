@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "bedtime";
+  src: url("../font/bedtime.eot");
+  /* IE9 */
+  src: url("../font/bedtime.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("../font/bedtime.woff") format("woff"), /* chrome, firefox */ url("../font/bedtime.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */ url("../font/bedtime.svg#bedtime") format("svg");
+  /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}
