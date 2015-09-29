@@ -8,24 +8,40 @@
   font-style: normal;
   font-weight: normal;
 }
-@keyframes rrotate {
+@-webkit-keyframes rrotate {
   0% {
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rrotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 .earthrotate {
+  -webkit-animation: rrotate 90s infinite linear;
   animation: rrotate 90s infinite linear;
 }
 .cloudrotate {
+  -webkit-animation: rrotate 45s infinite linear;
   animation: rrotate 45s infinite linear;
 }
 .planerotate {
+  -webkit-animation: rrotate 30s infinite linear;
   animation: rrotate 30s infinite linear;
 }
 .pause {
+  -webkit-animation-play-state: paused;
   animation-play-state: paused;
 }
 .i1:before {
@@ -93,7 +109,6 @@ body {
   height: 100%;
   width: 31%;
   text-align: center;
-  margin-right: 2px;
   background-color: darkslategray;
   font-family: "bedtime";
   font-size: 3rem ;
@@ -106,6 +121,10 @@ body {
 .pcindex .first .up .icons .wx svg {
   max-width: 100px;
   height: 100%;
+}
+.pcindex .first .up .icons .download,
+.pcindex .first .up .icons .wb {
+  margin-right: 0.5%;
 }
 .pcindex .first .down {
   height: 80%;
