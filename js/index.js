@@ -2,7 +2,6 @@
 	//定义第一页原始图片宽高
     var imageW = 1060,imageH = 416;
 	jQuery(document).ready(function($){
-		night();
         w1800();
         $('#fullpage').fullpage({
             navigation: true,
@@ -10,6 +9,7 @@
             scrollOverflow: true,
             anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
             afterRender:function(){
+            	night();
             	var arr = imageFitDiv('.earthblock','.earthwrap',imageW,imageH);
             	var ration = 1;
             	if(arr.base == 'w'){
