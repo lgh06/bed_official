@@ -1,12 +1,43 @@
 @charset "utf-8";
 @font-yy:"Youyuan","幼圆","SYHT","微软雅黑","Microsoft Yahei","Heiti";
 
+@font-face {
+    font-family: "bedtime";
+    src: url("../font/bedtime.eot"); /* IE9 */
+    src: url("../font/bedtime.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../font/bedtime.woff") format("woff"), /* chrome, firefox */
+    url("../font/bedtime.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("../font/bedtime.svg#bedtime") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+.i1:before{
+    content: '\f006';
+    display: inline-block;
+    font-family: "bedtime";
+}
+.i2:before{
+    content: '\f007';
+    display: inline-block;
+    font-family: "bedtime";
+}
+.i3:before{
+    content: '\f008';
+    display: inline-block;
+    font-family: "bedtime";
+}
+.i4:before{
+    content: '\f009';
+    display: inline-block;
+    font-family: "bedtime";
+}
+
 html,body{
     width: 100%;
     height: 100%;
 }
-body{
-    
+html{
+    font-size: 16px;
 }
 *{
     margin: 0;
@@ -24,47 +55,69 @@ body{
 }
 
 .pcindex{
-    
-
-    
     .first{
         .up{
-            height: 60px;
-            width: 25%;
-            float: right;
-            position: relative;
-            right: 25%;
-            background-color: black;
-            color: white;
-            .download,.wb,.wx{
-                display: inline-block;
-                height: 100%;
-                width: 31%;
-                text-align: center;
-                margin-right: 2px;
-                background-color: darkslategray;
-                img,svg{
-                    max-width:100px;
+            height: 20%;
+            width: 100%;
+            .icons{
+                height: 60px;
+                width: 25%;
+                float: right;
+                position: relative;
+                right: 25%;
+                background-color: black;
+                color: white;
+                .download,.wb,.wx{
+                    display: inline-block;
                     height: 100%;
+                    width: 31%;
+                    text-align: center;
+                    margin-right: 2px;
+                    background-color: darkslategray;
+                    font-family: "bedtime";
+                    font-size:3rem ;
+                    //-webkit-font-smoothing: antialiased;
+                    //-webkit-text-stroke-width: 0px;
+                    img,svg{
+                        max-width:100px;
+                        height: 100%;
+                    }
                 }
-            }
-            .download{
-                //background-image: url(../img/download.svg);
-            }
-            .wb{
-                //background-image: url(../img/wb.svg);
-            }
-            .wx{
-                //background-image: url(../img/wx.svg);
+                .download{
+                    //background-image: url(../img/download.svg);
+                }
+                .wb{
+                    //background-image: url(../img/wb.svg);
+                }
+                .wx{
+                    //background-image: url(../img/wx.svg);
+                }
             }
             
         }
         .down{
+            height: 80%;
+            
             .main{
-                
+                height: 50%;
+                .logo{
+                    height: 40%;
+                }
+                .tip{
+                    height: 20%;
+                }
+                .qr{
+                    height: 40%;
+                }
+                .logo,.tip,.qr{
+                    text-align: center;
+                    img{
+                        height: 100%;
+                    }
+                }
             }
-            .earth{
-                
+            .earthwrap{
+                height: 50%;
             }
         }
     }
