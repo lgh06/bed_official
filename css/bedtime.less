@@ -141,10 +141,14 @@ body canvas{
                         }
                     }
                     .earth img{
+                        //旋转需要根据原始未切割的图片来计算旋转中心
+                        transform-origin: percentage((231+569/2)/1080) percentage((568/2+200)/882);
                     }
                     .cloud img{
+                        transform-origin: percentage(569/1080) percentage(440/882);
                     }
                     .plane img{
+                        transform-origin: percentage(1060/2/1080) percentage(882/2/882);
                     }
                     
                 }

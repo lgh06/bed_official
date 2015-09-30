@@ -1,5 +1,5 @@
 (function(window,jQuery){
-	//定义第一页原始图片宽高
+	//定义第一页原始图片 需要显示部分的 宽高
     var imageW = 1060,imageH = 416;
 	jQuery(document).ready(function($){
         w1800();
@@ -11,132 +11,114 @@
             afterRender:function(){
             	night();
             	var arr = imageFitDiv('.earthblock','.earthwrap',imageW,imageH);
-            	var ration = 1;
+            	/*var ratio = 1;
             	if(arr.base == 'w'){
             		ratio = arr.w / imageW;
             	}else if(arr.base == 'h'){
             		ratio = arr.h / imageH;
-            	}
-            	console.log(ratio);
-            	$('.earthwrap .earth img').css({
-            		//'-webkit-transform-origin':transOgirin(520,487,arr.w,arr.h),
-            		'transform-origin':transOgirin(231+569/2,568/2+200,ratio),
-            	});
-            	$('.earthwrap .cloud').css({
-            		//'-webkit-transform-origin':transOgirin(520,487,arr.w,arr.h),,
-            		'transform-origin':transOgirin(569,440,ratio),
-            	});
-            	$('.earthwrap .plane').css({
-            		//'-webkit-transform-origin':transOgirin(520,487,arr.w,arr.h),
-            		'transform-origin':transOgirin(1060/2,882/2,ratio),
-            	});            	
+            	}   */      	
             },
             afterLoad:function(){
             	
             }
         });
-        
-        
-
-        
+    
+    
+    
+    	/**
+    	 * 辅助函数部分
+    	 */
+		function w1800(){
+	        if ($("html").width() > 1800) {
+	            $(".container").addClass("w1800");
+	        }else{
+	            $(".container").removeClass("w1800");
+	        }
+	    };
+	    
+	    //使图片适应div，宽高等比例，不超过div
+	    function imageFitDiv(div, find, imgOriginWidth, imgOriginHeight) {
+	        var w = $(div).width();
+	        var h = $(div).height();
+	        var arr = {};
+	        if (w / h >= imgOriginWidth / imgOriginHeight) {
+	        	var tmpW = h / imgOriginHeight * imgOriginWidth ;
+	            $(div).find(find).height(h + "px");
+	            $(div).find(find).width(tmpW+ "px");
+	            arr.h = h;
+	            arr.w = tmpW;
+	            arr.base='h';
+	            
+	        } else {
+	        	var tmpH = w / imgOriginWidth * imgOriginHeight;
+	            $(div).find(find).width(w + "px");
+	            $(div).find(find).height(tmpH + "px");
+	            arr.h = tmpH;
+	            arr.w = w;
+	            arr.base = 'w';
+	        }
+	        return arr;
+	    }
+	    
+	    function night(){
+	    	var c = $('#night')?$('#night')[0]:0;
+	    	if((!!c)&&$('html').hasClass('canvas')){
+				var $c = $(c);
+				$c.attr('width',$('html').width());
+				$c.attr('height',$('html').height());
+		    	var ctx=c.getContext("2d");
+				
+				var star=new Image();
+				star.src = 'img/bg1.png';
+				var moon=new Image();
+				moon.src = 'img/bg2.png';
+				star.addEventListener('load', drawStar , false);
+				moon.addEventListener('load', drawMoon , false);
+				
+				var W = $('html').width();
+				var H = $('html').height();
+				
+				var starArrX = [],starArrY=[];
+				var moonArrX = [],moonArrY=[];
+	
+				//100个星星
+				for(var i = 0;i<=100;i++){
+					starArrX[i] = Math.random()* W;
+					starArrY[i] = Math.random()* H;
+				}
+				//十个月亮
+				for(var i = 0;i<=10;i++){
+					moonArrX[i] = Math.random()* W;
+					moonArrY[i] = Math.random()* H;
+				}
+				
+	
+				
+				function drawStar(){
+					//context.drawImage(img,x,y,width,height);
+					$.each(starArrX, function(indexX,valueX) {
+						var tmpWidth = 5-Math.random()*5;
+						ctx.drawImage(star,valueX,starArrY[indexX],tmpWidth,tmpWidth);
+					});
+				}
+				function drawMoon(){
+					$.each(moonArrX, function(indexX,valueX) {
+						var tmpWidth = 10+Math.random()*10;
+						ctx.drawImage(moon,valueX,moonArrY[indexX],tmpWidth,tmpWidth);
+					});
+				}
+				
+				
+				
+	
+	    	}
+	    		
+	    }        
+	
+	        
 	});
 	
-	function w1800(){
-        if ($("html").width() > 1800) {
-            $(".container").addClass("w1800");
-        }else{
-            $(".container").removeClass("w1800");
-        }
-    };
-    
-    //使图片适应div，宽高等比例，不超过div
-    function imageFitDiv(div, find, imgOriginWidth, imgOriginHeight) {
-        var w = $(div).width();
-        var h = $(div).height();
-        var arr = {};
-        if (w / h >= imgOriginWidth / imgOriginHeight) {
-        	var tmpW = h / imgOriginHeight * imgOriginWidth ;
-            $(div).find(find).height(h + "px");
-            $(div).find(find).width(tmpW+ "px");
-            arr.h = h;
-            arr.w = tmpW;
-            arr.base='h';
-            
-        } else {
-        	var tmpH = w / imgOriginWidth * imgOriginHeight;
-            $(div).find(find).width(w + "px");
-            $(div).find(find).height(tmpH + "px");
-            arr.h = tmpH;
-            arr.w = w;
-            arr.base = 'w';
-        }
-        return arr;
-    }
-    
 
-    
-    //缩放后，重新确定旋转中心值
-    //ratio = 新图片大小/原来图片大小
-    function transOgirin(oX,oY,ratio){
-    	var ccc = (oX*ratio)+'px'+' '+(oY*ratio)+'px';
-    	console.log(ccc);
-    	return ccc;
-    }
-    
-    function night(){
-    	var c = $('#night')?$('#night')[0]:0;
-    	if((!!c)&&$('html').hasClass('canvas')){
-			var $c = $(c);
-			$c.attr('width',$('html').width());
-			$c.attr('height',$('html').height());
-	    	var ctx=c.getContext("2d");
-			
-			var star=new Image();
-			star.src = 'img/bg1.png';
-			var moon=new Image();
-			moon.src = 'img/bg2.png';
-			star.addEventListener('load', drawStar , false);
-			moon.addEventListener('load', drawMoon , false);
-			
-			var W = $('html').width();
-			var H = $('html').height();
-			
-			var starArrX = [],starArrY=[];
-			var moonArrX = [],moonArrY=[];
-
-			//100个星星
-			for(var i = 0;i<=100;i++){
-				starArrX[i] = Math.random()* W;
-				starArrY[i] = Math.random()* H;
-			}
-			//十个月亮
-			for(var i = 0;i<=10;i++){
-				moonArrX[i] = Math.random()* W;
-				moonArrY[i] = Math.random()* H;
-			}
-			
-
-			
-			function drawStar(){
-				//context.drawImage(img,x,y,width,height);
-				$.each(starArrX, function(indexX,valueX) {
-					var tmpWidth = 5-Math.random()*5;
-					ctx.drawImage(star,valueX,starArrY[indexX],tmpWidth,tmpWidth);
-				});
-			}
-			function drawMoon(){
-				$.each(moonArrX, function(indexX,valueX) {
-					var tmpWidth = 10+Math.random()*10;
-					ctx.drawImage(moon,valueX,moonArrY[indexX],tmpWidth,tmpWidth);
-				});
-			}
-			
-			
-			
-
-    	}
-    		
-    }
 })(window,jQuery);
 
 
