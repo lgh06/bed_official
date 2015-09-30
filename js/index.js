@@ -11,12 +11,9 @@
             afterRender:function(){
             	night();
             	var arr = imageFitDiv('.earthblock','.earthwrap',imageW,imageH);
-            	/*var ratio = 1;
-            	if(arr.base == 'w'){
-            		ratio = arr.w / imageW;
-            	}else if(arr.base == 'h'){
-            		ratio = arr.h / imageH;
-            	}   */      	
+            	
+            	//向第二三页插入up
+            	$(".section:not(:first) .container").prepend($(".up:first")[0].outerHTML);
             },
             afterLoad:function(){
             	
@@ -67,14 +64,8 @@
 				$c.attr('width',$('html').width());
 				$c.attr('height',$('html').height());
 		    	var ctx=c.getContext("2d");
-				
-				var star=new Image();
-				star.src = 'img/bg1.png';
-				var moon=new Image();
-				moon.src = 'img/bg2.png';
-				star.addEventListener('load', drawStar , false);
-				moon.addEventListener('load', drawMoon , false);
-				
+		    	
+		    					
 				var W = $('html').width();
 				var H = $('html').height();
 				
@@ -107,6 +98,14 @@
 						ctx.drawImage(moon,valueX,moonArrY[indexX],tmpWidth,tmpWidth);
 					});
 				}
+				
+				var star=new Image();
+				star.src = 'img/bg1.png';
+				var moon=new Image();
+				moon.src = 'img/bg2.png';
+				star.addEventListener('load', drawStar , false);
+				moon.addEventListener('load', drawMoon , false);
+
 				
 				
 				
