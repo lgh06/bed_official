@@ -13,11 +13,20 @@
             	var arr = imageFitDiv('.earthblock','.earthwrap',imageW,imageH);
             	
             	//向第二三页插入up
-            	$(".section:not(:first) .container").prepend($(".up:first")[0].outerHTML);
+            	$(".section:not(:first,:last) .container").prepend($(".up:first")[0].outerHTML);
             },
-            afterLoad:function(){
+            afterLoad:function(anchorLink, index){
             	
-            }
+            },
+            onLeave: function(index, nextIndex, direction){
+				if(nextIndex == 2){
+					var $div = $('.second .main');
+					imageFitDiv($div,$div.find('.mainblock'),1060,882);
+					var cir = new Image();
+					cir.src = 'img/page2/cir.png';
+					$('.second .main .mainblock').prepend(cir);
+				}
+	        }
         });
     
     

@@ -1,8 +1,10 @@
 @charset "utf-8";
 @font-yy:"Youyuan","幼圆","SYHT","微软雅黑","Microsoft Yahei","Heiti";
 
+
 @import "iconfont.less";
 @import "animate.less";
+@import "jquery.fullPage.less";
 
 .i1:before{
     content: '\f006';
@@ -156,6 +158,24 @@ body canvas{
         }
     }
     .second{
+        overflow: hidden;
+        .main{
+            height: 80%;
+            .mainblock{
+                margin: 0 auto;
+                position: relative;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;                
+                }
+                img.planerotate{
+                        transform-origin: percentage(1060/2/1080) percentage(882/2/882);
+                }
+            }
+        }
     }
     .third{
     }
