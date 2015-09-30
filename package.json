@@ -1,0 +1,23 @@
+{
+  "name": "bed_official",
+  "version": "1.0.0",
+  "description": "演示地址：[http://lgh06.gitcafe.io/bed_official/](http://lgh06.gitcafe.io/bed_official/)",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.oschina.net/lgh06/bed_official/tree/v3/"
+  },
+  "author": "lgh",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^6.0.3",
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3",
+    "gulp-postcss": "^6.0.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "path": "^0.12.7"
+  }
+}
