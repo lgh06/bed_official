@@ -1,0 +1,430 @@
+@charset "utf-8";
+@font-face {
+  font-family: "bedtime";
+  src: url("../font/bedtime.eot");
+  /* IE9 */
+  src: url("../font/bedtime.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */ url("../font/bedtime.woff") format("woff"), /* chrome, firefox */ url("../font/bedtime.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */ url("../font/bedtime.svg#bedtime") format("svg");
+  /* iOS 4.1- */
+  font-style: normal;
+  font-weight: normal;
+}
+@-webkit-keyframes rrotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rrotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.earthrotate {
+  -webkit-animation: rrotate 90s infinite linear;
+          animation: rrotate 90s infinite linear;
+}
+.cloudrotate {
+  -webkit-animation: rrotate 45s infinite linear;
+          animation: rrotate 45s infinite linear;
+}
+.planerotate {
+  -webkit-animation: rrotate 30s infinite linear;
+          animation: rrotate 30s infinite linear;
+}
+.pause {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+/**
+ * fullPage 2.6.6
+ * https://github.com/alvarotrigo/fullPage.js
+ * MIT licensed
+ *
+ * Copyright (C) 2013 alvarotrigo.com - A project by Alvaro Trigo
+ */
+html.fp-enabled,
+.fp-enabled body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /*Avoid flicker on slides transitions for mobile phones #336 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+#superContainer {
+  height: 100%;
+  position: relative;
+  /* Touch detection for Windows 8 */
+  -ms-touch-action: none;
+  /* IE 11 on Windows Phone 8.1*/
+  touch-action: none;
+}
+.fp-section {
+  position: relative;
+  /* Safari<=5 Android<=3 */
+  /* <=28 */
+  box-sizing: border-box;
+}
+.fp-slide {
+  float: left;
+}
+.fp-slide,
+.fp-slidesContainer {
+  height: 100%;
+  display: block;
+}
+.fp-slides {
+  z-index: 1;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  /* Safari<=6 Android<=4.3 */
+  transition: all 0.3s ease-out;
+}
+.fp-section.fp-table,
+.fp-slide.fp-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+.fp-tableCell {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+.fp-slidesContainer {
+  float: left;
+  position: relative;
+}
+.fp-controlArrow {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  margin-top: -38px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.fp-controlArrow.fp-prev {
+  left: 15px;
+  width: 0;
+  border-width: 38.5px 34px 38.5px 0;
+  border-color: transparent #fff transparent transparent;
+}
+.fp-controlArrow.fp-next {
+  right: 15px;
+  border-width: 38.5px 0 38.5px 34px;
+  border-color: transparent transparent transparent #fff;
+}
+.fp-scrollable {
+  overflow: scroll;
+}
+.fp-notransition {
+  transition: none !important;
+}
+/* TODO */
+#fp-nav {
+  position: fixed;
+  z-index: 100;
+  margin-top: -32px;
+  top: 50%;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+#fp-nav.right {
+  right: 17px;
+}
+#fp-nav.left {
+  left: 17px;
+}
+.fp-slidesNav {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  opacity: 1;
+}
+.fp-slidesNav.bottom {
+  bottom: 17px;
+}
+.fp-slidesNav.top {
+  top: 17px;
+}
+#fp-nav ul,
+.fp-slidesNav ul {
+  margin: 0;
+  padding: 0;
+}
+/* TODO */
+#fp-nav ul li,
+.fp-slidesNav ul li {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  position: relative;
+}
+.fp-slidesNav ul li {
+  display: inline-block;
+}
+/* TODO */
+#fp-nav ul li a,
+.fp-slidesNav ul li a {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+}
+/* TODO 当前页 */
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span,
+#fp-nav ul li:hover a.active span,
+.fp-slidesNav ul li:hover a.active span {
+  color: yellow;
+}
+/* TODO 所有页 */
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  color: #C2C2C2;
+  font-family: "bedtime";
+}
+#fp-nav ul li a span:before,
+.fp-slidesNav ul li a span:before {
+  display: block;
+  font-family: "bedtime";
+  font-size: 2rem;
+  transition: all 0.1s ease-in-out;
+}
+#fp-nav ul li:nth-child(1) a span:before,
+.fp-slidesNav ul li:nth-child(1) a span:before {
+  content: '\f006';
+}
+#fp-nav ul li:nth-child(2) a span:before,
+.fp-slidesNav ul li:nth-child(2) a span:before {
+  content: '\f007';
+}
+#fp-nav ul li:nth-child(3) a span:before,
+.fp-slidesNav ul li:nth-child(3) a span:before {
+  content: '\f008';
+}
+#fp-nav ul li:nth-child(4) a span:before,
+.fp-slidesNav ul li:nth-child(4) a span:before {
+  content: '\f009';
+}
+/* TODO 鼠标滑过的页 */
+#fp-nav ul li:hover a span,
+.fp-slidesNav ul li:hover a span {
+  color: white;
+}
+#fp-nav ul li .fp-tooltip {
+  position: absolute;
+  top: -2px;
+  color: #fff;
+  font-size: 14px;
+  font-family: arial, helvetica, sans-serif;
+  white-space: nowrap;
+  max-width: 220px;
+  overflow: hidden;
+  display: block;
+  opacity: 0;
+  width: 0;
+}
+#fp-nav ul li:hover .fp-tooltip,
+#fp-nav.fp-show-active a.active + .fp-tooltip {
+  transition: opacity 0.2s ease-in;
+  width: auto;
+  opacity: 1;
+}
+#fp-nav ul li .fp-tooltip.right {
+  right: 20px;
+}
+#fp-nav ul li .fp-tooltip.left {
+  left: 20px;
+}
+.i1:before {
+  content: '\f006';
+  display: inline-block;
+  font-family: "bedtime";
+}
+.i2:before {
+  content: '\f007';
+  display: inline-block;
+  font-family: "bedtime";
+}
+.i3:before {
+  content: '\f008';
+  display: inline-block;
+  font-family: "bedtime";
+}
+.i4:before {
+  content: '\f009';
+  display: inline-block;
+  font-family: "bedtime";
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+html {
+  font-size: 16px;
+}
+body {
+  background-color: #0d212a;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+.w1800 {
+  margin: 0 auto;
+  width: 1800px;
+  height: 100%;
+}
+body canvas {
+  display: none;
+}
+.canvas canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+.pcindex .up {
+  height: 20%;
+  width: 100%;
+}
+.pcindex .up .icons {
+  height: 60px;
+  width: 25%;
+  float: right;
+  position: relative;
+  right: 25%;
+  background-color: black;
+  color: white;
+}
+.pcindex .up .icons .download,
+.pcindex .up .icons .wb,
+.pcindex .up .icons .wx {
+  display: inline-block;
+  height: 100%;
+  width: 31%;
+  text-align: center;
+  background-color: darkslategray;
+  font-family: "bedtime";
+  font-size: 3rem ;
+}
+.pcindex .up .icons .download img,
+.pcindex .up .icons .wb img,
+.pcindex .up .icons .wx img,
+.pcindex .up .icons .download svg,
+.pcindex .up .icons .wb svg,
+.pcindex .up .icons .wx svg {
+  max-width: 100px;
+  height: 100%;
+}
+.pcindex .up .icons .download,
+.pcindex .up .icons .wb {
+  margin-right: 0.5%;
+}
+.pcindex .first .down {
+  height: 80%;
+  overflow: hidden;
+}
+.pcindex .first .down .main {
+  height: 50%;
+}
+.pcindex .first .down .main .logo {
+  height: 40%;
+}
+.pcindex .first .down .main .tip {
+  height: 20%;
+}
+.pcindex .first .down .main .qr {
+  position: relative;
+  z-index: 10;
+  height: 40%;
+}
+.pcindex .first .down .main .logo,
+.pcindex .first .down .main .tip,
+.pcindex .first .down .main .qr {
+  text-align: center;
+}
+.pcindex .first .down .main .logo img,
+.pcindex .first .down .main .tip img,
+.pcindex .first .down .main .qr img {
+  height: 100%;
+}
+.pcindex .first .down .earthblock {
+  height: 50%;
+}
+.pcindex .first .down .earthblock .earthwrap {
+  margin: 0 auto;
+  position: relative;
+}
+.pcindex .first .down .earthblock .earthwrap .earth,
+.pcindex .first .down .earthblock .earthwrap .cloud,
+.pcindex .first .down .earthblock .earthwrap .plane {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.pcindex .first .down .earthblock .earthwrap .earth img,
+.pcindex .first .down .earthblock .earthwrap .cloud img,
+.pcindex .first .down .earthblock .earthwrap .plane img {
+  width: 100%;
+}
+.pcindex .first .down .earthblock .earthwrap .earth img {
+  -webkit-transform-origin: 47.73148148% 54.87528345%;
+          transform-origin: 47.73148148% 54.87528345%;
+}
+.pcindex .first .down .earthblock .earthwrap .cloud img {
+  -webkit-transform-origin: 52.68518519% 49.88662132%;
+          transform-origin: 52.68518519% 49.88662132%;
+}
+.pcindex .first .down .earthblock .earthwrap .plane img {
+  -webkit-transform-origin: 49.07407407% 50%;
+          transform-origin: 49.07407407% 50%;
+}
+.pcindex .second {
+  overflow: hidden;
+}
+.pcindex .second .main {
+  height: 80%;
+}
+.pcindex .second .main .mainblock {
+  margin: 0 auto;
+  position: relative;
+}
+.pcindex .second .main .mainblock img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.pcindex .second .main .mainblock img.planerotate {
+  -webkit-transform-origin: 49.07407407% 50%;
+          transform-origin: 49.07407407% 50%;
+}
