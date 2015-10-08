@@ -1,36 +1,5 @@
 (function(window,jQuery){
-	//定义第一页原始图片 需要显示部分的 宽高
-    var imageW = 1060,imageH = 416;
-	jQuery(document).ready(function($){
-        w1800();
-        $('#fullpage').fullpage({
-            navigation: true,
-            verticalCentered: false,
-            scrollOverflow: true,
-            anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
-            afterRender:function(){
-            	night();
-            	var arr = imageFitDiv('.earthblock','.earthwrap',imageW,imageH);
-            	
-            	//向第二三页插入up
-            	$(".section:not(:first,:last) .container").prepend($(".up:first")[0].outerHTML);
-            },
-            afterLoad:function(anchorLink, index){
-            	
-            },
-            onLeave: function(index, nextIndex, direction){
-				if(nextIndex == 2){
-					var $div = $('.second .main');
-					imageFitDiv($div,$div.find('.mainblock'),1060,882);
-					var cir = new Image();
-					cir.src = 'img/page2/cir.png';
-					$('.second .main .mainblock').prepend(cir);
-				}
-	        }
-        });
-    
-    
-    
+	
     	/**
     	 * 辅助函数部分
     	 */
@@ -121,9 +90,147 @@
 	
 	    	}
 	    		
-	    }        
+	    }
+	    
+	    function percent(num){
+	    	return num*100+'%';
+	    }
+	    
+	    
+	    var WHLT = {
+	    	config:{
+	    		w:985,
+	    		h:559
+	    	},
+	    	set:function(div,w,h,l,t,config){
+	    		if(typeof config == 'undefined'){
+	    			config = WHLT.config;
+	    		}
+				$(div).css({
+					width:percent(w/config.w),
+					height:percent(h/config.h),
+					left:percent(l/config.w),
+					top:percent(t/config.h)
+				});
+		    }
+	    }
 	
-	        
+	
+	//定义第一页原始图片 需要显示部分的 宽高
+    var imageW = 1060,imageH = 416;
+	jQuery(document).ready(function($){
+        w1800();
+        $('#fullpage').fullpage({
+            navigation: true,
+            verticalCentered: false,
+            scrollOverflow: true,
+            anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
+            afterRender:function(){
+            	night();
+            	var arr = imageFitDiv('.earthblock','.earthwrap',imageW,imageH);
+            	
+            	//向第二三页插入up
+            	$(".section:not(:first,:last) .container").prepend($(".up:first")[0].outerHTML);
+            },
+            afterLoad:function(anchorLink, index){
+            	
+            },
+            onLeave: function(index, nextIndex, direction){
+            	console.log(index)
+            	console.log(nextIndex)
+				if(nextIndex == 2){
+					var $div = $('.second .main');
+					imageFitDiv($div,$div.find('.mainblock'),1060,882);
+					var cir = new Image();
+					cir.src = 'img/page2/cir.png';
+					$('.second .main .mainblock').prepend(cir);
+				}
+				if(nextIndex == 3){
+					var $div = $('.third .main');
+					imageFitDiv($div,$div.find('.mainblock'),985,559);
+					
+					var circle = new Image();
+					circle.src = "img/page3/black_cir.png";
+					var $b = $('.third .imgblock');
+					$b.prepend(circle);
+					$(circle).css({
+						width:percent(324/985),
+						//height:percent(324/559),
+						left:percent((487-324/2)/985),
+						top:percent((237-324/2)/559)
+					});
+					
+					var qiezi = new Image();
+					qiezi.src = "img/page3/qiezi.png";
+					$b.append(qiezi);
+					$(qiezi).css({
+						width:percent(183/985),
+						height:percent(185/559),
+						left:percent(74/985),
+						top:percent(0/559)
+					});
+					
+					var chaoren = new Image();
+					chaoren.src = "img/page3/chaoren.png";
+					$b.append(chaoren);
+					$(chaoren).css({
+						width:percent(158/985),
+						height:percent(153/559),
+						left:percent(27/985),
+						top:percent(405/559)
+					});
+					
+					var mao = new Image();
+					mao.src = "img/page3/mao.png";
+					$b.append(mao);
+					$(mao).css({
+						width:percent(192/985),
+						height:percent(154/559),
+						left:percent(723/985),
+						top:percent(384/559)
+					});
+
+					var luna = new Image();
+					luna.src = "img/page3/lunar.png";
+					$b.append(luna);
+					$(luna).css({
+						width:percent(132/985),
+						height:percent(133/559),
+						left:percent(724/985),
+						top:percent(8/559)
+					});
+					
+					var c = [];
+					for(var i = 1;i<10;i++){
+						c[i] = new Image();
+						if(i == 1 || i == 5 || i == 7 || i == 9){
+							c[i].src = "img/page3/cloud1.png";
+						}else if(i == 2 || i == 6 || i == 8){
+							c[i].src = "img/page3/cloud2.png";
+						}else{
+							c[i].src = "img/page3/cloud3.png";
+						}
+						
+						$b.append(c[i]);
+					}
+					
+					
+					WHLT.set(c[1],194,119,51,82);
+					WHLT.set(c[2],108,62,721,83);
+					WHLT.set(c[3],74,44,0,264);
+					WHLT.set(c[4],74,44,544,309);
+					WHLT.set(c[5],194,119,732,227);
+					WHLT.set(c[6],97,56,887,300);
+					WHLT.set(c[7],131,81,67,456);
+					WHLT.set(c[8],97,56,312,501);
+					WHLT.set(c[9],174,107,663,450);
+				}
+	        }
+        });
+    
+    
+    
+	    
 	});
 	
 

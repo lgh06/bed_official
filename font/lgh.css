@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "lgh";
+    src: url("lgh.eot"); /* IE9 */
+    src: url("lgh.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("lgh.woff") format("woff"), /* chrome, firefox */
+    url("lgh.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("lgh.svg#lgh") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+
