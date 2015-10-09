@@ -134,6 +134,22 @@
             	
             	//向第二三页插入up
             	$(".section:not(:first,:last) .container").prepend($(".up:first")[0].outerHTML);
+            	
+            	
+            	$('.qcode').css({
+            		width:'60px',
+            		height:'60px',
+            	});
+            	$('.download,.wb,.wx').mouseenter(function(e){
+            		console.log($(this).offset());
+            		var t = $(this);
+            		t.parent().siblings('.qcode').show(0).offset({
+	            		left:t.offset().left,
+	            		top:t.offset().top+t.height()
+            		});
+            	}).mouseleave(function(){
+            		$('.qcode').hide(0);
+            	});
             },
             afterLoad:function(anchorLink, index){
             	

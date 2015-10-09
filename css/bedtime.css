@@ -597,6 +597,7 @@ body canvas {
 .pcindex .up {
   height: 20%;
   width: 100%;
+  position: relative;
 }
 .pcindex .up .icons {
   height: 60px;
@@ -630,6 +631,12 @@ body canvas {
 .pcindex .up .icons .download,
 .pcindex .up .icons .wb {
   margin-right: 0.5%;
+}
+.pcindex .up .qcode {
+  position: absolute;
+  background-color: red;
+  display: none;
+  z-index: 100;
 }
 .pcindex .first .down {
   height: 80%;
