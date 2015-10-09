@@ -1,5 +1,5 @@
 (function(window,jQuery){
-	
+
     	/**
     	 * 辅助函数部分
     	 */
@@ -106,12 +106,15 @@
 	    		if(typeof config == 'undefined'){
 	    			config = WHLT.config;
 	    		}
-				$(div).css({
-					width:percent(w/config.w),
-					height:percent(h/config.h),
-					left:percent(l/config.w),
-					top:percent(t/config.h)
-				});
+	    		
+	    		var c = {};
+	    		w?(c.width=percent(w/config.w)):0;
+	    		h?(c.height=percent(h/config.h)):0;
+	    		l?(c.left=percent(l/config.w)):0;
+	    		t?(c.top=percent(t/config.h)):0;
+	    		
+				$(div).css(c);
+				return c; //返回备用
 		    }
 	    }
 	
@@ -136,16 +139,21 @@
             	
             },
             onLeave: function(index, nextIndex, direction){
-            	console.log(index)
-            	console.log(nextIndex)
+            	//console.log(index)
+            	//console.log(nextIndex)
 				if(nextIndex == 2){
 					var $div = $('.second .main');
 					imageFitDiv($div,$div.find('.mainblock'),1060,882);
 					var cir = new Image();
 					cir.src = 'img/page2/cir.png';
 					$('.second .main .mainblock').prepend(cir);
+					console.log(222)
 				}
 				if(nextIndex == 3){
+					if($(".third").hasClass('initialed')){
+						return;//跳出onleave函数
+					}
+
 					var $div = $('.third .main');
 					imageFitDiv($div,$div.find('.mainblock'),985,559);
 					
@@ -153,52 +161,37 @@
 					circle.src = "img/page3/black_cir.png";
 					var $b = $('.third .imgblock');
 					$b.prepend(circle);
-					$(circle).css({
-						width:percent(324/985),
-						//height:percent(324/559),
-						left:percent((487-324/2)/985),
-						top:percent((237-324/2)/559)
+					WHLT.set(circle,324,null,(487-324/2),(237-324/2));
+					
+					var lunar = new Image();
+					lunar.src = "img/page3/lunar.png";
+					$b.append($(lunar).addClass('lunar'));
+					
+					
+					var lunarP = WHLT.set(lunar,132,133,724,8);
+					$(lunar).css('top','100%');
+					$('.lunar').animate({
+						top:lunarP.top
+					},3000,function(){
+						$(this).addClass('lunarrotate');
 					});
 					
 					var qiezi = new Image();
 					qiezi.src = "img/page3/qiezi.png";
 					$b.append(qiezi);
-					$(qiezi).css({
-						width:percent(183/985),
-						height:percent(185/559),
-						left:percent(74/985),
-						top:percent(0/559)
-					});
+					WHLT.set(qiezi,183,185,74,0);	
 					
 					var chaoren = new Image();
 					chaoren.src = "img/page3/chaoren.png";
 					$b.append(chaoren);
-					$(chaoren).css({
-						width:percent(158/985),
-						height:percent(153/559),
-						left:percent(27/985),
-						top:percent(405/559)
-					});
+					WHLT.set(chaoren,158,153,27,405);
 					
 					var mao = new Image();
 					mao.src = "img/page3/mao.png";
 					$b.append(mao);
-					$(mao).css({
-						width:percent(192/985),
-						height:percent(154/559),
-						left:percent(723/985),
-						top:percent(384/559)
-					});
+					WHLT.set(mao,192,154,723,384);
 
-					var luna = new Image();
-					luna.src = "img/page3/lunar.png";
-					$b.append(luna);
-					$(luna).css({
-						width:percent(132/985),
-						height:percent(133/559),
-						left:percent(724/985),
-						top:percent(8/559)
-					});
+
 					
 					var c = [];
 					for(var i = 1;i<10;i++){
@@ -211,7 +204,7 @@
 							c[i].src = "img/page3/cloud3.png";
 						}
 						
-						$b.append(c[i]);
+						$b.append($(c[i]).addClass('clouds'));
 					}
 					
 					
@@ -224,7 +217,19 @@
 					WHLT.set(c[7],131,81,67,456);
 					WHLT.set(c[8],97,56,312,501);
 					WHLT.set(c[9],174,107,663,450);
+					
+					$(c).each(function(k,v){
+						$(this).addClass("float"+k);//动画class
+						$(this).css({
+							'-webkit-animation-delay':(-0.5*k)+'s',
+							'animation-delay':(-0.5*k)+'s'
+						});
+					});
+					
+					$(".third").addClass('initialed');
 				}
+				
+				//console.log(999);
 	        }
         });
     
