@@ -127,7 +127,7 @@
             navigation: true,
             verticalCentered: false,
             scrollOverflow: true,
-            anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage'],
+            anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage','footer'],
             afterRender:function(){
             	night();
             	var arr = imageFitDiv('.earthblock','.earthwrap',imageW,imageH);
@@ -136,19 +136,39 @@
             	$(".section:not(:first,:last) .container").prepend($(".up:first")[0].outerHTML);
             	
             	
-            	$('.qcode').css({
-            		width:'60px',
-            		height:'60px',
-            	});
+            	
             	$('.download,.wb,.wx').mouseenter(function(e){
-            		console.log($(this).offset());
             		var t = $(this);
-            		t.parent().siblings('.qcode').show(0).offset({
+            		var q = t.parent().siblings('.qcode');
+            		
+            		q.css({
+            			width:t.width()+'px'
+        			});
+            		var qImg1 = new Image();
+            		var qImg2 = new Image();
+            		var qImg3 = new Image();
+            		qImg1.src = 'img/qcode-1.png';
+            		qImg2.src = 'img/qcode-2.png';
+            		qImg3.src = 'img/qcode-3.png'; //提前缓存三个qr图 防止出现卡顿
+            		var qImg = q.find('img').get(0);
+            		if(t.is('.download')){
+            			qImg.src = qImg1.src;
+            		}else if(t.is('.wb')){
+            			qImg.src = qImg2.src;
+            		}else if(t.is('.wx')){
+            			qImg.src = qImg3.src;
+            		}
+            		
+            		
+            		q.stop().fadeIn(300).offset({
 	            		left:t.offset().left,
 	            		top:t.offset().top+t.height()
             		});
+            		
             	}).mouseleave(function(){
-            		$('.qcode').hide(0);
+            		var t = $(this);
+            		var q = t.parent().siblings('.qcode');
+            		q.stop().hide(0);
             	});
             },
             afterLoad:function(anchorLink, index){
