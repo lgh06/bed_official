@@ -716,7 +716,6 @@ body canvas {
   float: right;
   position: relative;
   right: 25%;
-  background-color: black;
   color: white;
 }
 .pcindex .up .icons .download,
@@ -726,7 +725,6 @@ body canvas {
   height: 100%;
   width: 31%;
   text-align: center;
-  background-color: darkslategray;
   font-family: "bedtime";
   font-size: 3rem ;
 }
