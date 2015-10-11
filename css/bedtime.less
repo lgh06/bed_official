@@ -62,7 +62,7 @@ body canvas{
 }
 .pcindex{
     .up{
-        height: 20%;
+        height: 10%;
         width: 100%;
         position: relative;
         z-index: 10;
@@ -118,7 +118,8 @@ body canvas{
     }
     .first{
         .down{
-            height: 80%;
+            height: 90%;
+            width: 100%;
             overflow: hidden;
             .main{
                 height: 50%;
@@ -174,7 +175,8 @@ body canvas{
     .second{
         overflow: hidden;
         .main{
-            height: 80%;
+            height: 90%;
+            width: 100%;
             .mainblock{
                 margin: 0 auto;
                 position: relative;
@@ -193,7 +195,8 @@ body canvas{
     }
     .third{
         .main{
-            height: 80%;
+            height: 90%;
+            width: 100%;
             .mainblock{
                 margin: 0 auto;
                 position: relative;
@@ -209,11 +212,171 @@ body canvas{
         }
     }
     .fourth{
+        .main{
+            height: 90%;
+            width: 100%;
+            .mainwrap{
+                height: 90%;
+                width: 100%;
+                .mainblock{
+                    margin: 0 auto;
+                    position: relative;
+                    .imgblock{
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        img{
+                            position: absolute;
+                        }
+                        .pop,.voice{
+                            //visibility: hidden;
+                            opacity: 0.5;
+                        }
+                        .pop:hover{
+                            //visibility: visible;
+                            //opacity: 0.5;
+                        }
+                    }
+                }
+            }
+        }
     }
     .fifth{
         .container{
             height: 300px;
-              
+            .footer{
+                height: 100%;
+                background-color: transparent;
+                padding-top: 10px;
+                box-sizing: border-box;
+                .ft{
+                    box-sizing: border-box;
+                    height: 100%;
+                    width: 80%;
+                    margin: 0 auto;
+                    color:#cccccc;
+                    font-family: "微软雅黑", "黑体", "Heiti", "楷体";
+                    .hr{
+                        clear: both;
+                        width: 100%;
+                        background-color: #C8C8D1;
+                        height: 1px;
+                    }
+    
+                    p{
+                        border: 0 none;
+                        margin: 0 auto;
+                        padding: 0;
+                    }
+    
+                    ul{
+                        border: 0 none;
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        display: inline;
+                        height: 100%;
+                        width: 80%;
+                        li{
+                            border: 0 none;
+                            margin: 0;
+                            padding: 0;
+                            width: 33%;
+                            height: 100%;
+                            list-style: none;
+                            float: left;
+                        }
+                    }
+    
+                    .short{
+                        height: 20%;
+                        font-size: 1.5em;
+                        line-height: 1.5em;
+                        text-align: center;
+                        ul{
+                            li{
+                                padding-top: 0.2em;
+    
+                            }
+                        }
+    
+                        @media all and (max-width: 1440px){
+                            font-size: 1em;
+                            padding-top: 3px;
+                            ul{
+                                li{
+                                    padding-top: 0;
+                                }
+                            }
+                        }
+    
+                    }
+                    .long{
+                        height: 50%;
+                        font-size: 0.8em;
+                        text-align: center;
+                        ul{
+                            height: 100%;
+                            width: 100%;
+                            display: block;
+                            li#qr{
+                                .wx{
+                                    display: inline-block;
+                                    float: left;
+                                    width: 50%;
+                                    height: 100%;
+                                    .tip{
+                                        -webkit-writing-mode:vertical-rl;
+                                        writing-mode:tb-rl;
+                                        writing-mode:vertical-rl;
+                                        height: 100%;
+                                        width:1.2em;
+                                        display: inline-block;
+                                    }
+                                    img{
+                                        height: 100%;
+                                    }
+                                }
+                                .wb{
+                                    display: inline-block;
+                                    float: left;
+                                    width: 50%;
+                                    height: 100%;
+                                    .tip{
+                                        -webkit-writing-mode:vertical-rl;
+                                        writing-mode:tb-rl;
+                                        writing-mode:vertical-rl;
+                                        height: 100%;
+                                        width:1.2em;
+                                        display: inline-block;
+                                    }
+                                    img{
+                                        background-color: #fff;
+                                        height: 100%;
+                                    }
+                                }
+                            }
+                            li.center,li.right{
+                                display: table;
+                                p{
+                                    display: table-cell;
+                                    vertical-align: middle;
+                                    width: 80%;
+                                    text-align: left;
+                                }
+                            }
+                            li.right p{
+                                text-align: center;
+                            }
+                        }
+    
+                    }
+                    .copy{
+                        text-align: center;
+                        font-size: 1em;
+                    }
+                }
+            }
         } 
         background-color: rgba(20,20,20,0.5);
     }

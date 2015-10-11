@@ -97,7 +97,7 @@
 	    }
 	    
 	    
-	    var WHLT = {
+	     /*{
 	    	config:{
 	    		w:985,
 	    		h:559
@@ -115,8 +115,36 @@
 	    		
 				$(div).css(c);
 				return c; //返回备用
+		    },
+		    get:function(){
+		    	return this;
 		    }
+	    }*/
+	    
+	    var WHLTTool = function(config){
+	    	if(typeof config == 'undefined'){
+		    	this.config = {
+		    		w:985,
+		    		h:559
+		    	}
+	    	}else{
+	    		this.config = config;
+	    	}
 	    }
+	    
+	    WHLTTool.prototype.set = function(div,w,h,l,t){
+    		
+    		var c = {};
+    		w?(c.width=percent(w/this.config.w)):0;
+    		h?(c.height=percent(h/this.config.h)):0;
+    		l?(c.left=percent(l/this.config.w)):0;
+    		t?(c.top=percent(t/this.config.h)):0;
+    		
+			$(div).css(c);
+			return c; //返回备用
+	    }
+	    
+	    var WHLT = new WHLTTool({w:985,h:559});
 	
 	
 	//定义第一页原始图片 需要显示部分的 宽高
@@ -265,7 +293,65 @@
 					$(".third").addClass('initialed');
 				}
 				
-				//console.log(999);
+				if(nextIndex == 4 || nextIndex == 5 ){
+					if($(".fourth").hasClass('initialed')){
+						return;//跳出onleave函数
+					}
+					var tool = new WHLTTool({w:1244,h:970});
+					var $div = $('.fourth .mainwrap');
+					imageFitDiv($div,$div.find('.mainblock'),1244,970);
+					
+					var qi = new Image();
+					qi.src = "img/page4/qipao.png";
+					var $c = $('.fourth .imgblock');
+					$c.append(qi);
+					tool.set(qi,1010,956,121,14);
+					
+					var pops = [];
+					var rs = [];
+					var voices = [];
+					for(var j = 1;j<=6;j++){
+						pops[j] = new Image();
+						pops[j].src = "img/page4/pop.png";
+						
+						rs[j] = new Image();
+						rs[j].src = "img/page4/"+j+".png";
+						
+						voices[j] = new Image();
+						voices[j].src = "img/page4/voice.png";
+
+						$c.append(rs[j]);    
+						$c.append($(pops[j]).addClass('pop'));  
+						$c.append($(voices[j]).addClass('voice'));  
+					}
+					
+					tool.set(rs[1],165,165,143,29);
+					//pops为正方形，取宽高的较小值
+					tool.set(pops[1],165,165,143,29);
+					tool.set(voices[1],33,37,211,88);
+					
+					tool.set(rs[2],324,250,0,300);						
+					tool.set(pops[2],250,250,0,300);
+					tool.set(voices[2],33,37,112,406);
+					
+					tool.set(rs[3],165,165,55,743);
+					tool.set(pops[3],165,165,55,743);
+					tool.set(voices[3],33,37,124,805);
+					
+					tool.set(rs[4],250,250,857,0);		
+					tool.set(pops[4],250,250,857,0);
+					tool.set(voices[4],33,37,967,104);
+
+					tool.set(rs[5],165,165,1079,565);
+					tool.set(pops[5],165,165,1079,565);
+					tool.set(voices[5],33,37,1150,625);
+					
+					tool.set(rs[6],250,250,775,719);
+					tool.set(pops[6],250,250,775,719);
+					tool.set(voices[6],33,37,882,826);
+					
+					$(".fourth").addClass('initialed');
+				}
 	        }
         });
     

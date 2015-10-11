@@ -705,7 +705,7 @@ body canvas {
   display: block;
 }
 .pcindex .up {
-  height: 20%;
+  height: 10%;
   width: 100%;
   position: relative;
   z-index: 10;
@@ -754,7 +754,8 @@ body canvas {
   width: 100%;
 }
 .pcindex .first .down {
-  height: 80%;
+  height: 90%;
+  width: 100%;
   overflow: hidden;
 }
 .pcindex .first .down .main {
@@ -818,7 +819,8 @@ body canvas {
   overflow: hidden;
 }
 .pcindex .second .main {
-  height: 80%;
+  height: 90%;
+  width: 100%;
 }
 .pcindex .second .main .mainblock {
   margin: 0 auto;
@@ -836,7 +838,8 @@ body canvas {
           transform-origin: 49.07407407% 50%;
 }
 .pcindex .third .main {
-  height: 80%;
+  height: 90%;
+  width: 100%;
 }
 .pcindex .third .main .mainblock {
   margin: 0 auto;
@@ -850,9 +853,163 @@ body canvas {
 .pcindex .third .main .mainblock .imgblock img {
   position: absolute;
 }
+.pcindex .fourth .main {
+  height: 90%;
+  width: 100%;
+}
+.pcindex .fourth .main .mainwrap {
+  height: 90%;
+  width: 100%;
+}
+.pcindex .fourth .main .mainwrap .mainblock {
+  margin: 0 auto;
+  position: relative;
+}
+.pcindex .fourth .main .mainwrap .mainblock .imgblock {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.pcindex .fourth .main .mainwrap .mainblock .imgblock img {
+  position: absolute;
+}
+.pcindex .fourth .main .mainwrap .mainblock .imgblock .pop,
+.pcindex .fourth .main .mainwrap .mainblock .imgblock .voice {
+  opacity: 0.5;
+}
 .pcindex .fifth {
   background-color: rgba(20, 20, 20, 0.5);
 }
 .pcindex .fifth .container {
   height: 300px;
+}
+.pcindex .fifth .container .footer {
+  height: 100%;
+  background-color: transparent;
+  padding-top: 10px;
+  box-sizing: border-box;
+}
+.pcindex .fifth .container .footer .ft {
+  box-sizing: border-box;
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  color: #cccccc;
+  font-family: "微软雅黑", "黑体", "Heiti", "楷体";
+}
+.pcindex .fifth .container .footer .ft .hr {
+  clear: both;
+  width: 100%;
+  background-color: #C8C8D1;
+  height: 1px;
+}
+.pcindex .fifth .container .footer .ft p {
+  border: 0 none;
+  margin: 0 auto;
+  padding: 0;
+}
+.pcindex .fifth .container .footer .ft ul {
+  border: 0 none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline;
+  height: 100%;
+  width: 80%;
+}
+.pcindex .fifth .container .footer .ft ul li {
+  border: 0 none;
+  margin: 0;
+  padding: 0;
+  width: 33%;
+  height: 100%;
+  list-style: none;
+  float: left;
+}
+.pcindex .fifth .container .footer .ft .short {
+  height: 20%;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+}
+.pcindex .fifth .container .footer .ft .short ul li {
+  padding-top: 0.2em;
+}
+@media all and (max-width: 1440px) {
+  .pcindex .fifth .container .footer .ft .short {
+    font-size: 1em;
+    padding-top: 3px;
+  }
+  .pcindex .fifth .container .footer .ft .short ul li {
+    padding-top: 0;
+  }
+}
+.pcindex .fifth .container .footer .ft .long {
+  height: 50%;
+  font-size: 0.8em;
+  text-align: center;
+}
+.pcindex .fifth .container .footer .ft .long ul {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+.pcindex .fifth .container .footer .ft .long ul li#qr .wx {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+.pcindex .fifth .container .footer .ft .long ul li#qr .wx .tip {
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+      writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  height: 100%;
+  width: 1.2em;
+  display: inline-block;
+}
+.pcindex .fifth .container .footer .ft .long ul li#qr .wx img {
+  height: 100%;
+}
+.pcindex .fifth .container .footer .ft .long ul li#qr .wb {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+.pcindex .fifth .container .footer .ft .long ul li#qr .wb .tip {
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+      writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  height: 100%;
+  width: 1.2em;
+  display: inline-block;
+}
+.pcindex .fifth .container .footer .ft .long ul li#qr .wb img {
+  background-color: #fff;
+  height: 100%;
+}
+.pcindex .fifth .container .footer .ft .long ul li.center,
+.pcindex .fifth .container .footer .ft .long ul li.right {
+  display: table;
+}
+.pcindex .fifth .container .footer .ft .long ul li.center p,
+.pcindex .fifth .container .footer .ft .long ul li.right p {
+  display: table-cell;
+  vertical-align: middle;
+  width: 80%;
+  text-align: left;
+}
+.pcindex .fifth .container .footer .ft .long ul li.right p {
+  text-align: center;
+}
+.pcindex .fifth .container .footer .ft .copy {
+  text-align: center;
+  font-size: 1em;
 }
