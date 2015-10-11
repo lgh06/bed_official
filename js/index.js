@@ -315,14 +315,14 @@
 						pops[j].src = "img/page4/pop.png";
 						
 						rs[j] = new Image();
-						rs[j].src = "img/page4/"+j+".png";
+						rs[j].src = "img/page4/out/"+j+".png";
 						
 						voices[j] = new Image();
 						voices[j].src = "img/page4/voice.png";
 
-						$c.append(rs[j]);    
-						$c.append($(pops[j]).addClass('pop'));  
-						$c.append($(voices[j]).addClass('voice'));  
+						$c.append($(rs[j]).addClass('r').data('order',j));    
+						$c.append($(pops[j]).addClass('pop').data('order',j));  
+						$c.append($(voices[j]).addClass('voice').data('order',j));  
 					}
 					
 					tool.set(rs[1],165,165,143,29);
@@ -330,7 +330,7 @@
 					tool.set(pops[1],165,165,143,29);
 					tool.set(voices[1],33,37,211,88);
 					
-					tool.set(rs[2],324,250,0,300);						
+					tool.set(rs[2],250,250,0,300);						
 					tool.set(pops[2],250,250,0,300);
 					tool.set(voices[2],33,37,112,406);
 					
@@ -349,6 +349,26 @@
 					tool.set(rs[6],250,250,775,719);
 					tool.set(pops[6],250,250,775,719);
 					tool.set(voices[6],33,37,882,826);
+					
+					var now;
+					var r;
+					//pop需要在r之上，否则png颜色会发生变化 不能变换z-index
+					$(".fourth .pop").mouseenter(function(){
+						console.log('enter');
+						now = this;
+						r = $(now).prev('img');
+						r.data('old-src',r[0].src).get(0).src = "img/page4/out-gif/"+$(now).data('order')+".gif";
+						$(now).hide().next('img').hide()
+					});
+					//pop在hide之后会触发mouseleave 不能都绑定在pop上
+					$('.fourth .r').mouseleave(function(){
+						now = this;
+						r = $(now);
+						r[0].src = r.data('old-src');
+						$(now).next('img.pop').show().next('img').next('img').show();
+						console.log($(now).next('img.pop').show().next('img').show());
+					});
+					
 					
 					$(".fourth").addClass('initialed');
 				}

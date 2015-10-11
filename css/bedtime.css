@@ -471,14 +471,14 @@ html.fp-enabled,
   cursor: pointer;
   text-decoration: none;
 }
-/* TODO ��ǰҳ */
+/* TODO 当前页 */
 #fp-nav ul li a.active span,
 .fp-slidesNav ul li a.active span,
 #fp-nav ul li:hover a.active span,
 .fp-slidesNav ul li:hover a.active span {
   color: yellow;
 }
-/* TODO ����ҳ */
+/* TODO 所有页 */
 #fp-nav ul li a span,
 .fp-slidesNav ul li a span {
   display: inline-block;
@@ -510,7 +510,7 @@ html.fp-enabled,
 .fp-slidesNav ul li:nth-child(4) a span:before {
   content: '\c6';
 }
-/* TODO ���껬����ҳ */
+/* TODO 鼠标滑过的页 */
 #fp-nav ul li:hover a span,
 .fp-slidesNav ul li:hover a span {
   color: white;
