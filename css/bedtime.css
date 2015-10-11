@@ -759,7 +759,7 @@ body canvas {
   overflow: hidden;
 }
 .pcindex .first .down .main {
-  height: 50%;
+  height: 40%;
 }
 .pcindex .first .down .main .logo {
   height: 40%;
@@ -783,7 +783,7 @@ body canvas {
   height: 100%;
 }
 .pcindex .first .down .earthblock {
-  height: 50%;
+  height: 60%;
 }
 .pcindex .first .down .earthblock .earthwrap {
   margin: 0 auto;
