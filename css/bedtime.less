@@ -1,5 +1,6 @@
 @charset "utf-8";
 @font-yy:"Youyuan","幼圆","SYHT","微软雅黑","Microsoft Yahei","Heiti";
+@font:"SYHT","微软雅黑","Microsoft YaHei","Heiti","STHeiti","HeitiSC","STHeitiSC";
 
 
 @import "iconfont.less";
@@ -36,6 +37,7 @@ html{
 }
 body{
     background-color: #0d212a;
+    font-family: @font;
 }
 *{
     margin: 0;
@@ -264,7 +266,7 @@ body canvas{
                     width: 80%;
                     margin: 0 auto;
                     color:#cccccc;
-                    font-family: "微软雅黑", "黑体", "Heiti", "楷体";
+                    font-family: @font;
                     .hr{
                         clear: both;
                         width: 100%;
