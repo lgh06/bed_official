@@ -206,12 +206,15 @@
             	//console.log(index)
             	//console.log(nextIndex)
 				if(nextIndex == 2){
+					if($(".second").hasClass('initialed')){
+						return;//跳出onleave函数
+					}
 					var $div = $('.second .main');
 					imageFitDiv($div,$div.find('.mainblock'),1060,882);
 					var cir = new Image();
 					cir.src = 'img/page2/cir.png';
 					$('.second .main .mainblock').prepend(cir);
-					console.log(222)
+					$(".second").addClass('initialed');
 				}
 				if(nextIndex == 3){
 					if($(".third").hasClass('initialed')){
