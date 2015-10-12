@@ -165,7 +165,7 @@
             	
             	
             	
-            	$('.download,.wb,.wx').mouseenter(function(e){
+            	$('.icons .download,.icons .wb,.icons .wx').mouseenter(function(e){
             		var t = $(this);
             		var q = t.parent().siblings('.qcode');
             		

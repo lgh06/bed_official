@@ -994,6 +994,12 @@ body canvas {
   background-color: #fff;
   height: 100%;
 }
+@media all and (max-width: 1365px) {
+  .pcindex .fifth .container .footer .ft .long ul li#qr .wb .tip,
+  .pcindex .fifth .container .footer .ft .long ul li#qr .wx .tip {
+    display: none;
+  }
+}
 .pcindex .fifth .container .footer .ft .long ul li.center,
 .pcindex .fifth .container .footer .ft .long ul li.right {
   display: table;
