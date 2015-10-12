@@ -358,19 +358,28 @@
 						now = this;
 						r = $(now).prev('img');
 						r.data('old-src',r[0].src).get(0).src = "img/page4/out-gif/"+$(now).data('order')+".gif";
-						$(now).hide().next('img').hide()
+						$(now).hide().next('img').hide();
+						
+						var ad = document.createElement('audio');
+						ad.src = "img/page4/voice/"+$(now).data('order')+".mp3";
+						$('body').append($(ad).attr('autoplay','autoplay').attr('loop','loop').css('display','none'));
 					});
 					//pop在hide之后会触发mouseleave 不能都绑定在pop上
 					$('.fourth .r').mouseleave(function(){
 						now = this;
 						r = $(now);
 						r[0].src = r.data('old-src');
-						$(now).next('img.pop').show().next('img').next('img').show();
-						console.log($(now).next('img.pop').show().next('img').show());
+						$(now).next('img.pop').show().next('img.voice').show();
+
+						$('audio').remove();
+						
 					});
 					
 					
+					
+					
 					$(".fourth").addClass('initialed');
+					
 				}
 	        }
         });
