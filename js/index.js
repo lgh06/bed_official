@@ -218,7 +218,7 @@
 						return;//跳出onleave函数
 					}
 
-					var $div = $('.third .main');
+					var $div = $('.third .mainwrap');
 					imageFitDiv($div,$div.find('.mainblock'),985,559);
 					
 					var circle = new Image();

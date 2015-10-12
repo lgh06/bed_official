@@ -854,6 +854,10 @@ body canvas {
   height: 90%;
   width: 100%;
 }
+.pcindex .third .main .mainwrap {
+  height: 90%;
+  width: 100%;
+}
 .pcindex .third .main .mainblock {
   margin: 0 auto;
   position: relative;
