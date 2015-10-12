@@ -750,6 +750,7 @@ body canvas {
 .pcindex .up .icons .wb:hover,
 .pcindex .up .icons .wx:hover {
   color: #FECC02;
+  cursor: pointer;
 }
 .pcindex .up .icons .download,
 .pcindex .up .icons .wb {
