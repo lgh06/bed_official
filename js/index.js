@@ -158,6 +158,13 @@
             anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage','footer'],
             afterRender:function(){
             	night();
+            	
+            	//360安全浏览器 一定几率图片width会变大
+            	var logoi = $('.first .logo img'); 
+            	logoi.width(logoi.height());
+            	var tipi = $('.first .tip img'); 
+            	tipi.width(tipi.height()/121*650);
+            	
             	var arr = imageFitDiv('.earthblock','.earthwrap',imageW,imageH);
             	
             	//向第二三页插入up
