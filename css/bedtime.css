@@ -484,37 +484,65 @@ html.fp-enabled,
   display: inline-block;
   height: 100%;
   width: 100%;
-  color: #C2C2C2;
-  font-family: "bedtime";
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-image: url(../img/nav.png);
 }
-#fp-nav ul li a span:before,
-.fp-slidesNav ul li a span:before {
-  display: block;
-  font-family: "bedtime";
-  font-size: 2rem;
-  transition: all 0.1s ease-in-out;
+#fp-nav ul li:nth-child(1) a span,
+.fp-slidesNav ul li:nth-child(1) a span {
+  width: 30px;
+  height: 30px;
+  background-position: -2px -2px;
 }
-#fp-nav ul li:nth-child(1) a span:before,
-.fp-slidesNav ul li:nth-child(1) a span:before {
-  content: '\c3';
+#fp-nav ul li:nth-child(2) a span,
+.fp-slidesNav ul li:nth-child(2) a span {
+  width: 30px;
+  height: 30px;
+  background-position: -66px -2px;
 }
-#fp-nav ul li:nth-child(2) a span:before,
-.fp-slidesNav ul li:nth-child(2) a span:before {
-  content: '\c4';
+#fp-nav ul li:nth-child(3) a span,
+.fp-slidesNav ul li:nth-child(3) a span {
+  width: 30px;
+  height: 30px;
+  background-position: -34px -34px;
 }
-#fp-nav ul li:nth-child(3) a span:before,
-.fp-slidesNav ul li:nth-child(3) a span:before {
-  content: '\c5';
+#fp-nav ul li:nth-child(4) a span,
+.fp-slidesNav ul li:nth-child(4) a span {
+  width: 30px;
+  height: 30px;
+  background-position: -2px -66px;
 }
-#fp-nav ul li:nth-child(4) a span:before,
-.fp-slidesNav ul li:nth-child(4) a span:before {
-  content: '\c6';
+#fp-nav ul li:nth-child(5),
+.fp-slidesNav ul li:nth-child(5) {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+#fp-nav ul li:hover:nth-child(1) a span,
+.fp-slidesNav ul li:hover:nth-child(1) a span,
+#fp-nav ul li:nth-child(1) a.active span,
+.fp-slidesNav ul li:nth-child(1) a.active span {
+  background-position: -34px -2px;
+}
+#fp-nav ul li:hover:nth-child(2) a span,
+.fp-slidesNav ul li:hover:nth-child(2) a span,
+#fp-nav ul li:nth-child(2) a.active span,
+.fp-slidesNav ul li:nth-child(2) a.active span {
+  background-position: -2px -34px;
+}
+#fp-nav ul li:hover:nth-child(3) a span,
+.fp-slidesNav ul li:hover:nth-child(3) a span,
+#fp-nav ul li:nth-child(3) a.active span,
+.fp-slidesNav ul li:nth-child(3) a.active span {
+  background-position: -66px -34px;
+}
+#fp-nav ul li:hover:nth-child(4) a span,
+.fp-slidesNav ul li:hover:nth-child(4) a span,
+#fp-nav ul li:nth-child(4) a.active span,
+.fp-slidesNav ul li:nth-child(4) a.active span {
+  background-position: -34px -66px;
 }
 /* TODO 鼠标滑过的页 */
-#fp-nav ul li:hover a span,
-.fp-slidesNav ul li:hover a span {
-  color: white;
-}
 #fp-nav ul li .fp-tooltip {
   position: absolute;
   top: -2px;
@@ -650,26 +678,6 @@ html.fp-enabled,
     page-break-after: always !important;
   }
 }
-.i1:before {
-  content: '\f006';
-  display: inline-block;
-  font-family: "bedtime";
-}
-.i2:before {
-  content: '\f007';
-  display: inline-block;
-  font-family: "bedtime";
-}
-.i3:before {
-  content: '\f008';
-  display: inline-block;
-  font-family: "bedtime";
-}
-.i4:before {
-  content: '\f009';
-  display: inline-block;
-  font-family: "bedtime";
-}
 html,
 body {
   width: 100%;
@@ -737,6 +745,11 @@ body canvas {
 .pcindex .up .icons .wx svg {
   max-width: 100px;
   height: 100%;
+}
+.pcindex .up .icons .download:hover,
+.pcindex .up .icons .wb:hover,
+.pcindex .up .icons .wx:hover {
+  color: #FECC02;
 }
 .pcindex .up .icons .download,
 .pcindex .up .icons .wb {

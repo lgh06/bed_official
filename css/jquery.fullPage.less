@@ -167,38 +167,53 @@ html.fp-enabled,
 	display: inline-block;
 	height: 100%;
 	width: 100%;
-	color: #C2C2C2;
-	font-family: "bedtime";
-	&:before{
-    display: block;
-    font-family: "bedtime";
-    font-size: 2rem;
+    overflow:hidden; 
+    background-repeat: no-repeat;
+    background-image:url(../img/nav.png);
     
-    transition: all 0.1s ease-in-out;	
 	}
     
-}
 
 #fp-nav ul li,
 .fp-slidesNav ul li{
-	&:nth-child(1) a span:before{
-		content: '\c3';
+	&:nth-child(1) a span{
+		width:30px;
+		height:30px; 
+		background-position: -2px -2px;
 	}
-	&:nth-child(2) a span:before{
-		content: '\c4';
+	&:nth-child(2) a span{
+		width:30px; height:30px; background-position: -66px -2px;
 	}
-	&:nth-child(3) a span:before{
-		content: '\c5';
+	&:nth-child(3) a span{
+		width:30px; height:30px; background-position: -34px -34px;
 	}
-	&:nth-child(4) a span:before{
-		content: '\c6';
+	&:nth-child(4) a span{
+		width:30px; height:30px; background-position: -2px -66px;
 	}
+    &:nth-child(5){
+        width:0px; height:0px; display: none;
+    }	
+	
+    &:hover:nth-child(1) a span,&:nth-child(1) a.active span{
+        background-position: -34px -2px
+    }
+    &:hover:nth-child(2) a span,&:nth-child(2) a.active span{
+        background-position: -2px -34px
+    }
+    &:hover:nth-child(3) a span,&:nth-child(3) a.active span{
+        background-position: -66px -34px
+    }
+    &:hover:nth-child(4) a span,&:nth-child(4) a.active span{
+        background-position: -34px -66px
+    }
+	
+	
 }
 
 /* TODO 鼠标滑过的页 */
-#fp-nav ul li:hover a span,
-.fp-slidesNav ul li:hover a span{
-	color: white;
+#fp-nav ul li:hover,
+.fp-slidesNav ul li:hover{
+
 }
 #fp-nav ul li .fp-tooltip {
     position: absolute;

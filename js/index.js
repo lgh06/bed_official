@@ -362,7 +362,7 @@
 						
 						var ad = document.createElement('audio');
 						ad.src = "img/page4/voice/"+$(now).data('order')+".mp3";
-						$('body').append($(ad).attr('autoplay','autoplay').attr('loop','loop').css('display','none'));
+						$('body').append($(ad).attr('autoplay','autoplay').css('display','none'));
 					});
 					//pop在hide之后会触发mouseleave 不能都绑定在pop上
 					$('.fourth .r').mouseleave(function(){

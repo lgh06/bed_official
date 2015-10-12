@@ -7,27 +7,6 @@
 @import "animate.less";
 @import "jquery.fullPage.less";
 
-.i1:before{
-    content: '\f006';
-    display: inline-block;
-    font-family: "bedtime";
-}
-.i2:before{
-    content: '\f007';
-    display: inline-block;
-    font-family: "bedtime";
-}
-.i3:before{
-    content: '\f008';
-    display: inline-block;
-    font-family: "bedtime";
-}
-.i4:before{
-    content: '\f009';
-    display: inline-block;
-    font-family: "bedtime";
-}
-
 html,body{
     width: 100%;
     height: 100%;
@@ -62,7 +41,9 @@ body canvas{
     left: 0;
     display: block;
 }
-.pcindex{
+.pcindex{ 
+    
+    
     .up{
         height: 10%;
         width: 100%;
@@ -89,6 +70,9 @@ body canvas{
                 img,svg{
                     max-width:100px;
                     height: 100%;
+                }
+                &:hover{
+                    color:#FECC02;
                 }
             }
             .download,.wb{
