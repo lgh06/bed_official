@@ -164,6 +164,8 @@
             	logoi.width(logoi.height());
             	var tipi = $('.first .tip img'); 
             	tipi.width(tipi.height()/121*650);
+            	var qri = $('.first .qr img'); 
+            	qri.width(qri.height()/234*196);
             	
             	var arr = imageFitDiv('.earthblock','.earthwrap',imageW,imageH);
             	
