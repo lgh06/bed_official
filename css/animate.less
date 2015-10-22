@@ -1,0 +1,51 @@
+@keyframes bedimg{
+  0% {
+      transform: rotate(15deg) skew(15deg) rotateY(0deg);
+      left: 120%;
+  }
+  50% {
+    transform: rotate(-15deg) skew(-15deg) rotateY(720deg);
+    left: 60%;
+  }
+  100% {
+    transform: rotate(0deg) skew(0deg) rotateY(1440deg);
+    left: 0;
+  }  
+}
+
+.bedimgmove{
+    animation: bedimg 1.5s linear forwards;
+}
+
+@keyframes bedp{
+    0% {
+        right: 100%;
+        transform: skewX(-40deg);
+        opacity: 0;
+    }
+    
+    50%{
+        right: 30%;
+    }
+
+    60% {
+        transform: skewX(-30deg);
+        opacity: 1;
+    }
+
+    80% {
+        transform: skewX(-20deg);
+        opacity: 1;
+        right: 15%;
+    }
+
+    100% {
+        right: 0;
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.bedpmove{
+    animation: bedp 1.5s linear forwards;
+}

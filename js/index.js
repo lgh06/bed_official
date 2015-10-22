@@ -1,3 +1,5 @@
+
+
 (function(window,jQuery){
 
     	/**
@@ -65,18 +67,86 @@
 	    }
 	    
 	    var WHLT = new WHLTTool({w:985,h:559});
+	    
+	    function night(){
+	    	var c = $('#night')?$('#night')[0]:0;
+	    	if((!!c)&&$('html').hasClass('canvas')){
+				var $c = $(c);
+				$c.attr('width',$('html').width());
+				$c.attr('height',$('html').height());
+		    	var ctx=c.getContext("2d");
+		    	
+		    					
+				var W = $('html').width();
+				var H = $('html').height();
+				
+				var starArrX = [],starArrY=[];
+				var moonArrX = [],moonArrY=[];
 	
+				//100个星星
+				for(var i = 0;i<=30;i++){
+					starArrX[i] = Math.random()* W;
+					starArrY[i] = Math.random()* H;
+				}
+				//十个月亮
+				for(var i = 0;i<=3;i++){
+					moonArrX[i] = Math.random()* W;
+					moonArrY[i] = Math.random()* H;
+				}
+				
 	
+				
+				function drawStar(){
+					//context.drawImage(img,x,y,width,height);
+					$.each(starArrX, function(indexX,valueX) {
+						var tmpWidth = 5-Math.random()*5;
+						ctx.drawImage(star,valueX,starArrY[indexX],tmpWidth,tmpWidth);
+					});
+				}
+				function drawMoon(){
+					$.each(moonArrX, function(indexX,valueX) {
+						var tmpWidth = 10+Math.random()*10;
+						ctx.drawImage(moon,valueX,moonArrY[indexX],tmpWidth,tmpWidth);
+					});
+				}
+				
+				var star=new Image();
+				star.src = 'img/bg1.png';
+				var moon=new Image();
+				moon.src = 'img/bg2.png';
+				star.addEventListener('load', drawStar , false);
+				moon.addEventListener('load', drawMoon , false);
+
+				
+				
+				
+	
+	    	}
+	    		
+	    }	
+	
+	var initialed = [];
 	jQuery(document).ready(function($){
         $('#fullpage').fullpage({
             navigation: true,
             verticalCentered: false,
-            scrollOverflow: true,
+            scrollOverflow: false,
             anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage','footer'],
             afterRender:function(){
-
+				night();
             },
             afterLoad:function(anchorLink, index){
+            	if(initialed[index]){
+            		return ;
+            	}
+            	var curr = $('.container').get(index-1);
+            	
+            	$(curr).find('p').addClass('bedpmove');
+        		setTimeout(function(){
+        			 $(curr).find('img').addClass('bedimgmove');	
+        		},800);
+        		
+        		initialed[index] = 1;
             	
             },
             onLeave: function(index, nextIndex, direction){

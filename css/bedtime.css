@@ -1,4 +1,102 @@
 @charset "utf-8";
+@-webkit-keyframes bedimg {
+  0% {
+    -webkit-transform: rotate(15deg) skew(15deg) rotateY(0deg);
+            transform: rotate(15deg) skew(15deg) rotateY(0deg);
+    left: 120%;
+  }
+  50% {
+    -webkit-transform: rotate(-15deg) skew(-15deg) rotateY(720deg);
+            transform: rotate(-15deg) skew(-15deg) rotateY(720deg);
+    left: 60%;
+  }
+  100% {
+    -webkit-transform: rotate(0deg) skew(0deg) rotateY(1440deg);
+            transform: rotate(0deg) skew(0deg) rotateY(1440deg);
+    left: 0;
+  }
+}
+@keyframes bedimg {
+  0% {
+    -webkit-transform: rotate(15deg) skew(15deg) rotateY(0deg);
+            transform: rotate(15deg) skew(15deg) rotateY(0deg);
+    left: 120%;
+  }
+  50% {
+    -webkit-transform: rotate(-15deg) skew(-15deg) rotateY(720deg);
+            transform: rotate(-15deg) skew(-15deg) rotateY(720deg);
+    left: 60%;
+  }
+  100% {
+    -webkit-transform: rotate(0deg) skew(0deg) rotateY(1440deg);
+            transform: rotate(0deg) skew(0deg) rotateY(1440deg);
+    left: 0;
+  }
+}
+.bedimgmove {
+  -webkit-animation: bedimg 1.5s linear forwards;
+          animation: bedimg 1.5s linear forwards;
+}
+@-webkit-keyframes bedp {
+  0% {
+    right: 100%;
+    -webkit-transform: skewX(-40deg);
+            transform: skewX(-40deg);
+    opacity: 0;
+  }
+  50% {
+    right: 30%;
+  }
+  60% {
+    -webkit-transform: skewX(-30deg);
+            transform: skewX(-30deg);
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: skewX(-20deg);
+            transform: skewX(-20deg);
+    opacity: 1;
+    right: 15%;
+  }
+  100% {
+    right: 0;
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1;
+  }
+}
+@keyframes bedp {
+  0% {
+    right: 100%;
+    -webkit-transform: skewX(-40deg);
+            transform: skewX(-40deg);
+    opacity: 0;
+  }
+  50% {
+    right: 30%;
+  }
+  60% {
+    -webkit-transform: skewX(-30deg);
+            transform: skewX(-30deg);
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: skewX(-20deg);
+            transform: skewX(-20deg);
+    opacity: 1;
+    right: 15%;
+  }
+  100% {
+    right: 0;
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1;
+  }
+}
+.bedpmove {
+  -webkit-animation: bedp 1.5s linear forwards;
+          animation: bedp 1.5s linear forwards;
+}
 /*!
  * fullPage 2.7.4
  * https://github.com/alvarotrigo/fullPage.js
@@ -24,9 +122,7 @@ html.fp-enabled,
 }
 .fp-section {
   position: relative;
-  -webkit-box-sizing: border-box;
   /* Safari<=5 Android<=3 */
-  -moz-box-sizing: border-box;
   /* <=28 */
   box-sizing: border-box;
 }
@@ -43,7 +139,6 @@ html.fp-enabled,
   height: 100%;
   overflow: hidden;
   position: relative;
-  -webkit-transition: all 0.3s ease-out;
   /* Safari<=6 Android<=4.3 */
   transition: all 0.3s ease-out;
 }
@@ -73,7 +168,6 @@ html.fp-enabled,
   border-style: solid;
   margin-top: -38px;
   -webkit-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 .fp-controlArrow.fp-prev {
@@ -91,7 +185,6 @@ html.fp-enabled,
   overflow: scroll;
 }
 .fp-notransition {
-  -webkit-transition: none !important;
   transition: none !important;
 }
 #fp-nav {
@@ -167,9 +260,6 @@ html.fp-enabled,
   left: 50%;
   top: 50%;
   margin: -2px 0 0 -2px;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
 #fp-nav ul li:hover a span,
@@ -193,7 +283,6 @@ html.fp-enabled,
 }
 #fp-nav ul li:hover .fp-tooltip,
 #fp-nav.fp-show-active a.active + .fp-tooltip {
-  -webkit-transition: opacity 0.2s ease-in;
   transition: opacity 0.2s ease-in;
   width: auto;
   opacity: 1;
@@ -270,11 +359,7 @@ html.fp-enabled,
   }
   .fp-slidesContainer {
     -webkit-transform: none !important;
-    -ms-transform: none !important;
     transform: none !important;
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -ms-transition: none !important;
     transition: none !important;
   }
   .fp-slides,
@@ -296,11 +381,7 @@ html.fp-enabled,
   .fullpage-wrapper {
     float: none !important;
     -webkit-transform: none !important;
-    -ms-transform: none !important;
     transform: none !important;
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -ms-transition: none !important;
     transition: none !important;
     position: static !important;
     width: auto !important;
@@ -331,7 +412,7 @@ html {
   font-size: 16px;
 }
 body {
-  background-color: gray;
+  background-color: #0d212a;
   font-family: "SYHT", "微软雅黑", "Microsoft YaHei", "Heiti", "STHeiti", "HeitiSC", "STHeitiSC";
 }
 * {
@@ -342,11 +423,60 @@ body {
 .container {
   width: 100%;
   height: 100%;
-}
-.mobileindex .first .container {
   position: relative;
 }
-.mobileindex .first .container .mob {
+.hide {
+  background-color: #0d212a;
+}
+body canvas {
+  display: none;
+}
+.canvas canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+.bedtop {
+  height: 80%;
+  width: 100%;
+  position: relative;
+}
+.bedtop .imgwrap {
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  text-align: center;
+}
+.bedtop .imgwrap img {
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  left: 100%;
+}
+.bedbtm {
+  color: white;
+  height: 20%;
+  width: 100%;
+  position: relative;
+}
+.bedbtm .tipwrap {
+  width: 100%;
+  position: absolute;
+  top: 10%;
+  text-align: center;
+}
+.bedbtm .tipwrap p {
+  background-color: #0d212a;
+  height: 20%;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 1.2em;
+  position: relative;
+  right: 120%;
+}
+.mobileindex .first .mob {
   position: relative;
   top: 30%;
   color: white;
@@ -354,10 +484,11 @@ body {
   font-size: 24px;
   text-align: center;
 }
-.mobileindex .first .container .mob span {
+.mobileindex .first .mob span {
+  background-color: #0d212a;
   font-size: 0.6em;
 }
-.mobileindex .first .container .mob a {
+.mobileindex .first .mob a {
   -webkit-box-shadow: #2a6496 0px -4px 0px 0px inset;
   -webkit-transition-delay: 0s;
   -webkit-transition-duration: 0.2s;
@@ -405,7 +536,8 @@ body {
   text-align: center;
   text-decoration: none;
   text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px, rgba(0, 0, 0, 0.0745098) 0px 0px 30px;
-  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-property: all;
@@ -414,7 +546,10 @@ body {
   white-space: nowrap;
   width: 290px;
 }
-.mobileindex .first .container .mob a:hover {
+.mobileindex .first .mob a:hover {
   background-color: #286090;
   border-color: #204d74;
+}
+.mobileindex .footer {
+  height: 300px;
 }
