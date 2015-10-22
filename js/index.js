@@ -136,7 +136,7 @@
 				night();
             },
             afterLoad:function(anchorLink, index){
-            	if(initialed[index]){
+            	if(initialed[index]||index == 5){
             		return ;
             	}
             	var curr = $('.container').get(index-1);

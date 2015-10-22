@@ -551,5 +551,6 @@ body canvas {
   border-color: #204d74;
 }
 .mobileindex .footer {
-  height: 300px;
+  text-align: center;
+  color: white;
 }
