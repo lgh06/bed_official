@@ -3,7 +3,6 @@
 @font:"SYHT","微软雅黑","Microsoft YaHei","Heiti","STHeiti","HeitiSC","STHeitiSC";
 
 
-@import "iconfont.less";
 @import "animate.less";
 @import "jquery.fullPage.less";
 
@@ -13,9 +12,10 @@ html,body{
 }
 html{
     font-size: 16px;
+    
 }
 body{
-    background-color: #0d212a;
+    background-color: gray;
     font-family: @font;
 }
 *{
@@ -27,367 +27,88 @@ body{
     width: 100%;
     height: 100%;
 }
-.w1800{
-    margin:0 auto;
-    width:1800px;
-    height: 100%;
-}
-body canvas{
-    display: none;
-}
-.canvas canvas{
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-}
-.pcindex{ 
-    
-    
-    .up{
-        height: 10%;
-        width: 100%;
-        position: relative;
-        z-index: 10;
-        .icons{
-            height: 60px;
-            width: 25%;
-            float: right;
-            position: relative;
-            right: 25%;
-            //background-color: black;
-            color: white;
-            .download,.wb,.wx{
-                display: inline-block;
-                height: 100%;
-                width: 31%;
-                text-align: center;
-                //background-color: darkslategray;
-                font-family: "bedtime";
-                font-size:3rem ;
-                //-webkit-font-smoothing: antialiased;
-                //-webkit-text-stroke-width: 0px;
-                img,svg{
-                    max-width:100px;
-                    height: 100%;
-                }
-                &:hover{
-                    color:#FECC02;
-                    cursor: pointer;
-                }
-            }
-            .download,.wb{
-                margin-right: 0.5%;
-            }
-            .download{
-                //background-image: url(../img/download.svg);
-            }
-            .wb{
-                //background-image: url(../img/wb.svg);
-            }
-            .wx{
-                //background-image: url(../img/wx.svg);
-            }
-        }
-        
-        .qcode{
-            position: absolute;
-            display: none;
-            z-index: 100;
-            max-width: 167px;
-            max-height: 204px;
-            img{
-                width: 100%;
-            }
 
-            
-        }
-    }
+
+
+.mobileindex{ 
     .first{
-        .down{
-            height: 90%;
-            width: 100%;
-            overflow: hidden;
-            .main{
-                height: 40%;
-                width: 100%;
-                .logo{
-                    height: 40%;
-                    
-                }
-                .tip{
-                    height: 20%;
-                }
-                .qr{
-                    position: relative;
-                    z-index: 10;
-                    height: 40%;
-                }
-                .logo,.tip,.qr{
-                    text-align: center;
-                    width: 100%;
-                    img{
-                        height: 100%;
-                        display: inline-block;
-                    }
-                }
-            }
-            .earthblock{
-                height: 60%;
-                //overflow: hidden;
-                .earthwrap{
-                    margin: 0 auto;
-                    position: relative;
-                    .earth,.cloud,.plane{
-                        width: 100%;
-                        height: 100%;
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        img{
-                            width: 100%;
-                        }
-                    }
-                    .earth img{
-                        //旋转需要根据原始未切割的图片来计算旋转中心
-                        transform-origin: percentage((231+569/2)/1080) percentage((568/2+200)/882);
-                    }
-                    .cloud img{
-                        transform-origin: percentage(569/1080) percentage(440/882);
-                    }
-                    .plane img{
-                        transform-origin: percentage(1060/2/1080) percentage(882/2/882);
-                    }
-                    
-                }
-            }
-        }
-    }
-    .second{
-        overflow: hidden;
-        .main{
-            height: 90%;
-            width: 100%;
-            .mainblock{
-                margin: 0 auto;
-                position: relative;
-                img{
-                    height: 100%;
-                    width: 100%;
-                    position: absolute;
-                    left: 0;
-                    top: 0;                
-                }
-                img.planerotate{
-                        transform-origin: percentage(1060/2/1080) percentage(882/2/882);
-                }
-            }
-        }
-    }
-    .third{
-        .main{
-            height: 90%;
-            width: 100%;
-            .mainwrap{
-                height: 90%;
-                width: 100%;
-            }
-            .mainblock{
-                margin: 0 auto;
-                position: relative;
-                .imgblock{
-                    width: 100%;
-                    height: 100%;
-                    position: relative;
-                    img{
-                        position: absolute;
-                    }
-                }
-            }
-        }
-    }
-    .fourth{
-        .main{
-            height: 90%;
-            width: 100%;
-            .mainwrap{
-                height: 90%;
-                width: 100%;
-                .mainblock{
-                    margin: 0 auto;
-                    position: relative;
-                    .imgblock{
-                        width: 100%;
-                        height: 100%;
-                        position: relative;
-                        img{
-                            position: absolute;
-                        }
-                        .pop,.voice{
-                            //visibility: hidden;
-                            opacity: 0.5;
-                        }
-                        .pop:hover{
-                            //visibility: visible;
-                            //opacity: 0.5;
-                        }
-                        
-                        .r{
-                            //方便添加鼠标进入的事件
-                            //z-index: 8;
-                        }
-                        .voice{
-                            //z-index: 9;
-                        }
-                        
-                    }
-                }
-            }
-        }
-    }
-    .fifth{
         .container{
-            height: 300px;
-            .footer{
-                height: 100%;
-                background-color: transparent;
-                padding-top: 10px;
-                box-sizing: border-box;
-                .ft{
-                    box-sizing: border-box;
-                    height: 100%;
-                    width: 80%;
-                    margin: 0 auto;
-                    color:#cccccc;
-                    font-family: @font;
-                    .hr{
-                        clear: both;
-                        width: 100%;
-                        background-color: #C8C8D1;
-                        height: 1px;
-                    }
-    
-                    p{
-                        border: 0 none;
-                        margin: 0 auto;
-                        padding: 0;
-                    }
-    
-                    ul{
-                        border: 0 none;
-                        margin: 0;
-                        padding: 0;
-                        list-style: none;
-                        display: inline;
-                        height: 100%;
-                        width: 80%;
-                        li{
-                            border: 0 none;
-                            margin: 0;
-                            padding: 0;
-                            width: 33%;
-                            height: 100%;
-                            list-style: none;
-                            float: left;
-                        }
-                    }
-    
-                    .short{
-                        height: 20%;
-                        font-size: 1.5em;
-                        line-height: 1.5em;
-                        text-align: center;
-                        ul{
-                            li{
-                                padding-top: 0.2em;
-    
-                            }
-                        }
-    
-                        @media all and (max-width: 1440px){
-                            font-size: 1em;
-                            padding-top: 3px;
-                            ul{
-                                li{
-                                    padding-top: 0;
-                                }
-                            }
-                        }
-    
-                    }
-                    .long{
-                        height: 50%;
-                        font-size: 0.8em;
-                        text-align: center;
-                        ul{
-                            height: 100%;
-                            width: 100%;
-                            display: block;
-                            li#qr{
-                                .wx{
-                                    display: inline-block;
-                                    float: left;
-                                    width: 50%;
-                                    height: 100%;
-                                    .tip{
-                                        -webkit-writing-mode:vertical-rl;
-                                        writing-mode:tb-rl;
-                                        writing-mode:vertical-rl;
-                                        height: 100%;
-                                        width:1.2em;
-                                        display: inline-block;
-                                    }
-                                    img{
-                                        height: 100%;
-                                    }
-                                }
-                                .wb{
-                                    display: inline-block;
-                                    float: left;
-                                    width: 50%;
-                                    height: 100%;
-                                    .tip{
-                                        -webkit-writing-mode:vertical-rl;
-                                        writing-mode:tb-rl;
-                                        writing-mode:vertical-rl;
-                                        height: 100%;
-                                        width:1.2em;
-                                        display: inline-block;
-                                    }
-                                    img{
-                                        background-color: #fff;
-                                        height: 100%;
-                                    }
-                                }
-                                
-                                @media all and (max-width:1365px){
-                                    .wb .tip,.wx .tip{
-                                        display: none;
-                                    }
-                                }
-                            }
-                            li.center,li.right{
-                                display: table;
-                                p{
-                                    display: table-cell;
-                                    vertical-align: middle;
-                                    width: 80%;
-                                    text-align: left;
-                                }
-                            }
-                            li.right p{
-                                text-align: center;
-                            }
-                        }
-    
-                    }
-                    .copy{
-                        text-align: center;
-                        font-size: 1em;
-                    }
+            position: relative;
+            .mob{
+                position: relative;
+                top: 30%;
+                color: white;
+                font-family: @font;
+                font-size: 24px;
+                text-align: center;
+                span{
+                    font-size: 0.6em
                 }
+                a{
+                    -webkit-box-shadow: #2a6496 0px -4px 0px 0px inset;
+                    -webkit-transition-delay: 0s;
+                    -webkit-transition-duration: 0.2s;
+                    -webkit-transition-property: all;
+                    -webkit-transition-timing-function: ease-in-out;
+                    -webkit-user-select: none;
+                    background-color: #337ab7;
+                    background-image: none;
+                    border-bottom-color: #ffffff;
+                    border-bottom-left-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    border-bottom-style: none;
+                    border-bottom-width: 0px;
+                    border-image-outset: 0px;
+                    border-image-repeat: stretch;
+                    border-image-slice: 100%;
+                    border-image-source: none;
+                    border-image-width: 1;
+                    border-left-color: #ffffff;
+                    border-left-style: none;
+                    border-left-width: 0px;
+                    border-right-color: #ffffff;
+                    border-right-style: none;
+                    border-right-width: 0px;
+                    border-top-color: #ffffff;
+                    border-top-left-radius: 6px;
+                    border-top-right-radius: 6px;
+                    border-top-style: none;
+                    border-top-width: 0px;
+                    box-shadow: #2a6496 0px -4px 0px 0px inset;
+                    box-sizing: border-box;
+                    color: #ffffff;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-family: 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'WenQuanYi Micro Hei', sans-serif;
+                    font-size: 1.2em;
+                    font-weight: normal;
+                    height: 54px;
+                    line-height: 24px;
+                    margin-bottom: 0px;
+                    padding-bottom: 17px;
+                    padding-left: 35px;
+                    padding-right: 35px;
+                    padding-top: 13px;
+                    text-align: center;
+                    text-decoration: none;
+                    text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 3px, rgba(0, 0, 0, 0.0745098) 0px 0px 30px;
+                    touch-action: manipulation;
+                    transition-delay: 0s;
+                    transition-duration: 0.2s;
+                    transition-property: all;
+                    transition-timing-function: ease-in-out;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    width: 290px;
+                }
+                a:hover{
+                    background-color: #286090;
+                    border-color: #204d74;
+                }        
             }
-        } 
-        background-color: rgba(20,20,20,0.5);
+        }
     }
+    
+    
+ 
 }
