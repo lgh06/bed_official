@@ -142,9 +142,9 @@
             	}
             	if(index == 1){
             		if($('html').height()>$('html').width()){
-            			$('.mob').css({
+            			/*$('.mob').css({
             				top:400/1698*$('#bg').height()+'px'
-            			});
+            			});*/
             		}else{
             			$('#bg').hide(0);
             			$('.mob .hide').show(0);
