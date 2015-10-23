@@ -136,14 +136,28 @@
 				night();
             },
             afterLoad:function(anchorLink, index){
+            	
             	if(initialed[index]||index == 5){
             		return ;
             	}
+            	if(index == 1){
+            		if($('html').height()>$('html').width()){
+            			$('.mob').css({
+            				top:400/1698*$('#bg').height()+'px'
+            			});
+            		}else{
+            			$('#bg').hide(0);
+            			$('.mob .hide').show(0);
+            			$('.mob a').removeClass('vert').addClass('hori');
+            			$('.mob span').css('background-color','#0d212a');
+            		}
+            		
+            	}
             	var curr = $('.container').get(index-1);
             	
-            	$(curr).find('p').addClass('bedpmove');
+            	$(curr).find('.bedbtm p').addClass('bedpmove');
         		setTimeout(function(){
-        			 $(curr).find('img').addClass('bedimgmove');	
+        			 $(curr).find('.bedtop img').addClass('bedimgmove');	
         		},800);
         		
         		initialed[index] = 1;
