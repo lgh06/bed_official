@@ -1,6 +1,12 @@
 
 
 (function(window,jQuery){
+	
+			var bUA = window.navigator.userAgent;
+			var isAndroid = 0;
+            if(bUA.indexOf("Android")>=0){
+                isAndroid = 1;
+            }
 
     	/**
     	 * 辅助函数部分
@@ -111,9 +117,9 @@
 				}
 				
 				var star=new Image();
-				star.src = 'img/bg1.png';
+				star.src = '//dn-shuiqian-cc.qbox.me/public/index/v3m/img/bg1.png';
 				var moon=new Image();
-				moon.src = 'img/bg2.png';
+				moon.src = '//dn-shuiqian-cc.qbox.me/public/index/v3m/img/bg2.png';
 				star.addEventListener('load', drawStar , false);
 				moon.addEventListener('load', drawMoon , false);
 
@@ -157,12 +163,15 @@
             		
             	}
             	var curr = $('.container').get(index-1);
-            	
-            	$(curr).find('.bedbtm p').addClass('bedpmove');
-        		setTimeout(function(){
-        			 $(curr).find('.bedtop img').addClass('bedimgmove');	
-        		},800);
-        		
+            	if(isAndroid){
+            		$('.bedbtm p').css('right','0');
+            		$('.bedtop img').css('left','0');
+            	}else{
+	            	$(curr).find('.bedbtm p').addClass('bedpmove');
+	        		setTimeout(function(){
+	        			 $(curr).find('.bedtop img').addClass('bedimgmove');	
+	        		},800);
+        		}
         		initialed[index] = 1;
             	
             },
